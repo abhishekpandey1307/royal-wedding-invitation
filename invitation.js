@@ -711,12 +711,13 @@ function initPetalsEngine() {
       const len = Math.hypot(fullDx, fullDy) || 1;
       const perpX = -fullDy / len;
       const perpY = fullDx / len;
-      // Natural lateral arch
-      const arch = Math.sin(t * Math.PI) * (isMobile ? 25 : 55);
-      const randomSpread = (Math.random() - 0.5) * (isMobile ? 35 : 50);
+      // Natural outward curve: deflect outward to sweep around names
+      const arch = Math.sin(t * Math.PI) * (isMobile ? 55 : 75);
+      const randomSpread = (Math.random() - 0.5) * (isMobile ? 20 : 35);
 
-      x = flower.x + fullDx * t + perpX * (arch + randomSpread);
-      y = flower.y + fullDy * t + perpY * (arch + randomSpread);
+      // Deflect outward to the right flank, keeping Sanskrit text & names unoccluded
+      x = flower.x + fullDx * t - perpX * (arch + randomSpread);
+      y = flower.y + fullDy * t - perpY * (arch + randomSpread);
     } else {
       // Spawn right at the blooming lotus petals
       x = flower.x + (Math.random() - 0.5) * 22;
@@ -836,9 +837,13 @@ function initPetalsEngine() {
       const perpX = -streamDirY;
       const perpY = streamDirX;
       p.wobblePhase += p.wobbleSpeed;
-      const swayForce = Math.sin(p.wobblePhase) * (p.swayAmp * 0.022) * (0.6 + flat * 0.6);
+      // Soft text avoidance cushion: gently guides petals around central names
+      let textDeflectX = 0;
+      if (p.y > sceneH * 0.36 && p.y < sceneH * 0.60 && p.x > sceneW * 0.30 && p.x < sceneW * 0.70) {
+        textDeflectX = p.x < sceneW * 0.5 ? -0.4 : 0.4;
+      }
 
-      p.x += vx + perpX * swayForce;
+      p.x += vx + perpX * swayForce + textDeflectX;
       p.y += vy + perpY * swayForce;
 
       // Slow 3D Tumbling & Rotations
