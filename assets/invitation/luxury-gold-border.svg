@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" width="100%" height="100%" preserveAspectRatio="none" class="royal-svg-border">
+  <defs>
+    <linearGradient id="goldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7a5416"/>
+      <stop offset="25%" stop-color="#c9a030"/>
+      <stop offset="50%" stop-color="#fdf4cf"/>
+      <stop offset="75%" stop-color="#c9a030"/>
+      <stop offset="100%" stop-color="#5c3d00"/>
+    </linearGradient>
+    <radialGradient id="rubyGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#b82034"/>
+      <stop offset="80%" stop-color="#660a16"/>
+      <stop offset="100%" stop-color="#3d030b"/>
+    </radialGradient>
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#805510" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Line 1: Outer Perimeter Hairline — Flush with frame perimeter -->
+  <rect x="1" y="1" width="1398" height="798" fill="none" stroke="url(#goldStroke)" stroke-width="1.4" opacity="0.9" filter="url(#goldGlow)"/>
+
+  <!-- Line 2: Middle Rich Gold Band (5px inside) -->
+  <rect x="6" y="6" width="1388" height="788" fill="none" stroke="url(#goldStroke)" stroke-width="2.2" filter="url(#goldGlow)"/>
+
+  <!-- Line 3: Inner Delicate Hairline (10px inside) -->
+  <rect x="11" y="11" width="1378" height="778" fill="none" stroke="url(#goldStroke)" stroke-width="0.8" opacity="0.65"/>
+
+  <!-- Corner 1: Top-Left Ornate Royal Medallion -->
+  <g transform="translate(6, 6)" filter="url(#goldGlow)">
+    <path d="M 0,0 L 36,0 M 0,0 L 0,36" stroke="url(#goldStroke)" stroke-width="2.4" fill="none"/>
+    <path d="M 6,6 L 24,6 M 6,6 L 6,24" stroke="url(#goldStroke)" stroke-width="1.0" fill="none"/>
+    <polygon points="0,0 12,-6 18,0 12,6" fill="url(#goldStroke)" transform="translate(14, 14) rotate(45)"/>
+    <circle cx="14" cy="14" r="3.4" fill="url(#rubyGlow)" stroke="#c9a030" stroke-width="0.8"/>
+  </g>
+
+  <!-- Corner 2: Top-Right Ornate Royal Medallion -->
+  <g transform="translate(1394, 6) scale(-1, 1)" filter="url(#goldGlow)">
+    <path d="M 0,0 L 36,0 M 0,0 L 0,36" stroke="url(#goldStroke)" stroke-width="2.4" fill="none"/>
+    <path d="M 6,6 L 24,6 M 6,6 L 6,24" stroke="url(#goldStroke)" stroke-width="1.0" fill="none"/>
+    <polygon points="0,0 12,-6 18,0 12,6" fill="url(#goldStroke)" transform="translate(14, 14) rotate(45)"/>
+    <circle cx="14" cy="14" r="3.4" fill="url(#rubyGlow)" stroke="#c9a030" stroke-width="0.8"/>
+  </g>
+
+  <!-- Corner 3: Bottom-Left Ornate Royal Medallion -->
+  <g transform="translate(6, 794) scale(1, -1)" filter="url(#goldGlow)">
+    <path d="M 0,0 L 36,0 M 0,0 L 0,36" stroke="url(#goldStroke)" stroke-width="2.4" fill="none"/>
+    <path d="M 6,6 L 24,6 M 6,6 L 6,24" stroke="url(#goldStroke)" stroke-width="1.0" fill="none"/>
+    <polygon points="0,0 12,-6 18,0 12,6" fill="url(#goldStroke)" transform="translate(14, 14) rotate(45)"/>
+    <circle cx="14" cy="14" r="3.4" fill="url(#rubyGlow)" stroke="#c9a030" stroke-width="0.8"/>
+  </g>
+
+  <!-- Corner 4: Bottom-Right Ornate Royal Medallion -->
+  <g transform="translate(1394, 794) scale(-1, -1)" filter="url(#goldGlow)">
+    <path d="M 0,0 L 36,0 M 0,0 L 0,36" stroke="url(#goldStroke)" stroke-width="2.4" fill="none"/>
+    <path d="M 6,6 L 24,6 M 6,6 L 6,24" stroke="url(#goldStroke)" stroke-width="1.0" fill="none"/>
+    <polygon points="0,0 12,-6 18,0 12,6" fill="url(#goldStroke)" transform="translate(14, 14) rotate(45)"/>
+    <circle cx="14" cy="14" r="3.4" fill="url(#rubyGlow)" stroke="#c9a030" stroke-width="0.8"/>
+  </g>
+
+  <!-- Subtle Center Accent Nodes on 4 Edges -->
+  <circle cx="700" cy="6" r="3.0" fill="url(#rubyGlow)" stroke="#c9a030" stroke-width="0.8" filter="url(#goldGlow)"/>
+  <circle cx="700" cy="794" r="3.0" fill="url(#rubyGlow)" stroke="#c9a030" stroke-width="0.8" filter="url(#goldGlow)"/>
+  <circle cx="6" cy="400" r="3.0" fill="url(#rubyGlow)" stroke="#c9a030" stroke-width="0.8" filter="url(#goldGlow)"/>
+  <circle cx="1394" cy="400" r="3.0" fill="url(#rubyGlow)" stroke="#c9a030" stroke-width="0.8" filter="url(#goldGlow)"/>
+</svg>

@@ -1,0 +1,657 @@
+/* ==========================================================================
+   VEER & AANYA — Royal Indian Wedding · Scroll-Driven Cinematic Reveal
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Rozha+One&family=Marcellus&display=swap');
+
+/* ── Tokens ──────────────────────────────────────────────────────────────── */
+:root {
+  --paper:          #fcf6e4;
+  --ink:            #1c1108;
+  --ink-warm:       #3d2b1f;
+  --crimson:        #7e1220;
+  --crimson-royal:  linear-gradient(135deg, #4f0812 0%, #7d1220 30%, #a81c30 50%, #7d1220 70%, #4f0812 100%);
+  --gold:           #c9a030;
+  --gold-light:     #f5e09a;
+  --gold-deep:      #7a5416;
+  --gold-antique:   linear-gradient(135deg, #593905 0%, #8f600e 28%, #c99320 50%, #8f600e 72%, #593905 100%);
+  --gold-foil:      linear-gradient(135deg, #6b4405 0%, #aa7c16 22%, #e5c44f 45%, #fff2b5 55%, #e5c44f 65%, #aa7c16 78%, #6b4405 100%);
+  --t-cursive:      'Pinyon Script', Georgia, cursive;
+  --t-royal:        'Cinzel Decorative', 'Cormorant Garamond', Georgia, serif;
+  --t-serif:        'Cormorant Garamond', Georgia, serif;
+  --t-devanagari:   'Rozha One', 'Cormorant Garamond', serif;
+  --t-caption:      'Marcellus', 'Cormorant Garamond', serif;
+  --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Reset ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: #f7f2e7;
+  font-family: var(--t-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+body { position: fixed; inset: 0; }
+
+/* ── Loading Veil ─────────────────────────────────────────────────────────── */
+.veil {
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 1.2s var(--ease-out);
+}
+.veil.gone { opacity: 0; pointer-events: none; }
+
+.veil-inner { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+.veil-om {
+  font-family: var(--t-devanagari);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  color: var(--crimson);
+  opacity: 0;
+  animation: om-breathe 2.4s ease-in-out forwards;
+  text-shadow: 0 0 28px rgba(201, 160, 48, 0.55), 0 2px 6px rgba(122, 84, 22, 0.28);
+}
+@keyframes om-breathe {
+  0%   { opacity: 0; transform: scale(0.82); }
+  55%  { opacity: 1.0; transform: scale(1.06); }
+  100% { opacity: 1.0; transform: scale(1); }
+}
+
+.veil-line {
+  width: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+  animation: line-grow 1.6s 0.4s ease-out forwards;
+}
+@keyframes line-grow {
+  to { width: clamp(80px, 20vw, 160px); }
+}
+
+/* ── Scroll Hint ─────────────────────────────────────────────────────────── */
+.scroll-hint {
+  position: fixed;
+  bottom: clamp(32px, 6vh, 54px);
+  /* Stay above audio button & OS home indicator */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  left: 50%; transform: translateX(-50%);
+  z-index: 100;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.scroll-hint.visible { opacity: 1; }
+.scroll-hint.hidden { opacity: 0; }
+
+.scroll-hint-text {
+  font-family: var(--t-caption);
+  font-size: 0.65rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.scroll-hint-arrow {
+  width: 10px; height: 10px;
+  border-right: 1.2px solid var(--gold);
+  border-bottom: 1.2px solid var(--gold);
+  transform: rotate(45deg);
+  animation: bob 2s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.5; }
+  50%       { transform: rotate(45deg) translateY(4px); opacity: 1; }
+}
+
+/* ── Audio Button ─────────────────────────────────────────────────────────── */
+.audio-btn {
+  position: fixed;
+  bottom: clamp(16px, 3vh, 32px);
+  right: clamp(16px, 3vw, 32px);
+  /* Respect OS home indicator / gesture bar */
+  margin-bottom: env(safe-area-inset-bottom, 0px);
+  z-index: 100;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1.5px solid rgba(180,140,40,0.75);
+  background: rgba(245,237,216,0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-deep);
+  box-shadow: 0 4px 16px rgba(120,85,20,0.22);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), opacity 0.8s ease;
+  opacity: 0;
+}
+.audio-btn.ready { opacity: 1; }
+.audio-btn:hover { transform: scale(1.1); box-shadow: 0 4px 18px rgba(180,140,40,0.28); }
+.audio-icon { width: 15px; height: 15px; fill: currentColor; }
+.audio-ring {
+  position: absolute; inset: -5px; border-radius: 50%;
+  border: 1px solid rgba(180,140,40,0.45);
+  opacity: 0; pointer-events: none;
+}
+.audio-btn.playing .audio-ring {
+  animation: ring-pulse 2.2s cubic-bezier(0.2,0,0.4,1) infinite;
+}
+@keyframes ring-pulse {
+  0%   { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ── Stage & Scene — Full-Bleed Royal Canvas ────────────────────────────── */
+.stage {
+  position: fixed; inset: 0;
+  width: 100vw; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  background: #fbf5e6;
+  overflow: hidden;
+}
+
+/* Full-bleed immersive royal scene */
+.scene {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+}
+
+/* ── Traditional Luxury Mandala Background (PC / Desktop Default) ────────── */
+.paper-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  background-image: url('assets/invitation/traditional-luxury-mandala-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* ── Dedicated Mobile Mandalas: strictly hidden on PC / Desktop ──────────── */
+.mandala-frame {
+  display: none;
+}
+
+/* ── Atmospheric Warm Vignette (No pitch black) ──────────────────────────── */
+.vignette {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: radial-gradient(
+    ellipse 90% 85% at 50% 50%,
+    transparent 60%,
+    rgba(180, 140, 60, 0.08) 85%,
+    rgba(140, 95, 30, 0.16) 100%
+  );
+}
+
+/* ── Gold Dust Canvas ─────────────────────────────────────────────────────── */
+.dust-canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; z-index: 3;
+  opacity: 0.5; mix-blend-mode: screen;
+}
+
+/* ── Full-Bleed Inner Canvas: Hand Clipping Container ─────────────────────
+   Full bleed (inset: 0) with overflow: hidden so hands emerge naturally
+   from beyond the screen perimeter with clean, borderless royal elegance.
+*/
+.scene-inner {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ── Ultra-Realistic Falling Rose & Lotus Petals Canvas ────────────────────
+   Floats at z-index: 28 (in front of hands and gold border frame, behind central names)
+   Provides deep cinematic physical presence as petals flutter gracefully across the card.
+────────────────────────────────────────────────────────────────────────────── */
+.petals-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 28;
+}
+
+/* ── Hand illustrations ─────────────────────────────────────────────────────
+   High-definition transparent PNGs of the Kishangarh miniature hands.
+   Divine hand holds sacred pink lotus hovering above the central names.
+   Bridal hand adorned with mehndi rises from lower-left.
+   They frame the couple's names in a balanced diagonal embrace across all screen sizes.
+────────────────────────────────────────────────────────────────────────────── */
+.hand {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.hand img {
+  display: block;
+  width: 100%; height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/*
+  Divine (groom/Krishna) hand:
+  — Enters diagonally from the TOP-RIGHT corner
+  — Sized and elevated so the lotus blossom hovers serenely above and right of AANYA
+  — Strictly clears the couple's names and all central typography
+*/
+.hand-divine {
+  top: -6%;
+  right: 0%;
+  width: clamp(260px, 34vw, 480px);
+  transform-origin: top right;
+  z-index: 10;
+}
+
+/*
+  Bridal (bride/mehndi) hand:
+  — Enters diagonally from the BOTTOM-LEFT corner
+  — Sized and anchored so the henna-decorated palm welcomes gracefully from below
+  — Strictly clears the couple's names and all central typography
+*/
+.hand-bridal {
+  bottom: -6%;
+  left: 0%;
+  width: clamp(240px, 32vw, 440px);
+  transform-origin: bottom left;
+  z-index: 9;
+}
+
+/* Lotus glow: concentrated aura precisely centered on the blooming lotus blossom */
+.lotus-glow {
+  position: absolute;
+  top: 60%; left: 13.5%;
+  width: 26%; height: 26%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255,200,215,0.75) 0%,
+    rgba(250,150,180,0.45) 40%,
+    rgba(230,170,80,0.18) 70%,
+    transparent 100%
+  );
+  filter: blur(16px);
+  mix-blend-mode: screen;
+  opacity: 0;
+  pointer-events: none;
+  animation: lotus-breathe 4.5s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+
+/* Exact anchor points for petal origin (lotus flower) & destination (henna palm) */
+.flower-anchor {
+  position: absolute;
+  top: 73%; left: 26.5%;
+  width: 4px; height: 4px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.palm-anchor {
+  position: absolute;
+  top: 37%; left: 62%;
+  width: 4px; height: 4px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+@keyframes lotus-breathe {
+  0%   { transform: scale(0.92); opacity: 0.5; }
+  100% { transform: scale(1.12); opacity: 0.9; }
+}
+
+/* ── Central Invite Typography — Exact Dead-Center Names Hero ────────────── */
+.invite-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: min(94vw, 860px);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Royal Header: Placed directly above the centered names with consistent clearance */
+.invite-header {
+  position: absolute;
+  bottom: calc(100% + clamp(10px, 2.0vh, 22px));
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* Center panel */
+.txt-invocation, .royal-crest {
+  width: 100%;
+  max-width: min(92%, 580px);
+}
+
+/* ── Royal Monogram Crest ────────────────────────────────────────────────── */
+.royal-crest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: clamp(4px, 1.0vh, 10px);
+  opacity: 0; transform: translateY(12px) scale(0.9);
+  will-change: opacity, transform;
+}
+.crest-svg {
+  width: clamp(80px, 10vw, 130px);
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 2px 8px rgba(122, 84, 22, 0.3));
+}
+.crest-letters {
+  font-family: var(--t-royal);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+}
+
+/* Sanskrit Invocation */
+.txt-invocation {
+  display: flex; align-items: center; gap: clamp(8px, 1.5vw, 16px);
+  font-family: var(--t-devanagari);
+  font-size: clamp(0.70rem, 1.3vw, 1.05rem);
+  letter-spacing: 0.18em;
+  color: #7d1220;
+  margin-bottom: 0;
+  opacity: 0; transform: translateY(14px);
+  will-change: opacity, transform;
+  text-shadow: 0 1px 2px rgba(185, 140, 45, 0.35);
+}
+
+.inv-rule {
+  flex: 1; height: 0.8px;
+  background: linear-gradient(90deg, transparent, rgba(125, 18, 32, 0.5), transparent);
+}
+
+.inv-text { white-space: nowrap; flex-shrink: 0; }
+
+/* Names block with partner units: DEAD CENTER OF SCREEN */
+.txt-names {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.partner-unit {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.partner-groom {
+  align-items: flex-end;
+  padding-right: clamp(8px, 1.6vw, 20px);
+}
+
+.partner-bride {
+  align-items: flex-start;
+  padding-left: clamp(8px, 1.6vw, 20px);
+}
+
+.name-amp {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 clamp(4px, 1.0vw, 12px);
+  transform: translateY(-2px);
+}
+
+.name-group {
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+/* Individual Letter Container — Slim Haute-Couture Royal Serif (Cinzel Decorative 400) */
+.cl {
+  position: relative;
+  display: inline-block;
+  font-family: var(--t-royal);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.14em;
+  padding: 0 1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  filter: drop-shadow(1px 2px 0px rgba(195, 150, 50, 0.75)) drop-shadow(0 1px 2px rgba(79, 8, 18, 0.35));
+}
+
+/* The Calligraphy Glyph — Deep Royal Imperial Lacquer Crimson with 100% Contrast & Legibility */
+.cl-glyph {
+  display: inline-block;
+  background: linear-gradient(135deg, #590a14 0%, #730e1c 30%, #8c1424 50%, #730e1c 70%, #590a14 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #730e1c;
+  /* Slanted cursive clip-path that sweeps along the stroke */
+  clip-path: polygon(0% 0%, 0% 0%, -15% 100%, 0% 100%);
+  opacity: 0;
+  will-change: clip-path, opacity;
+  transform: translateZ(0);
+}
+
+/* Calligraphy Pen Nib: Golden Quill Spark at Writing Tip */
+.cl-nib {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #ffe680 40%, rgba(201, 160, 48, 0) 100%);
+  box-shadow: 0 0 12px 3px rgba(255, 215, 0, 0.88), 0 0 4px #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  will-change: left, opacity;
+}
+
+/* Partner side honorifics (The Groom / The Bride) — Slim & refined */
+.partner-side {
+  font-family: var(--t-caption);
+  font-size: clamp(0.56rem, 0.96vw, 0.76rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #730e1c;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(8px);
+  will-change: opacity, transform;
+  text-shadow: 0 1px 1px rgba(195, 150, 50, 0.4);
+}
+
+@media (max-width: 900px) {
+  .scene-inner { inset: 0; }
+  .hand-divine {
+    top: -3%;
+    right: 0%;
+    width: clamp(210px, 38vw, 320px);
+  }
+  .hand-bridal {
+    bottom: -3%;
+    left: 0%;
+    width: clamp(200px, 36vw, 300px);
+  }
+  .cl { font-size: clamp(1.8rem, 4.4vw, 2.8rem); letter-spacing: 0.12em; font-weight: 400; }
+  .name-amp .cl { font-size: clamp(1.6rem, 3.8vw, 2.5rem); font-weight: 400; }
+}
+
+/* ── SPECIALIZED SMARTPHONE EXPERIENCE (All Mobile Viewports <= 768px) ────── */
+@media (max-width: 768px) {
+  /* On mobile portrait, swap paper-bg to smooth ivory texture */
+  .paper-bg {
+    background-image: url('assets/invitation/champagne-ivory-base.jpg');
+  }
+
+  /* Dedicated 24K Top & Bottom Mandalas framing smartphone screens */
+  .mandala-frame {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .mandala-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .mandala-top {
+    top: 0;
+    width: clamp(360px, 115vw, 520px);
+  }
+
+  .mandala-bot {
+    bottom: 0;
+    width: clamp(360px, 115vw, 520px);
+  }
+
+  .scene-inner {
+    inset: 0;
+  }
+
+  /* Kishangarh Hands on mobile: MAJESTIC framing without crowding names */
+  .hand-divine {
+    top: -2%;
+    right: -4%;
+    width: clamp(220px, 58vw, 300px);
+    z-index: 10;
+  }
+
+  .hand-bridal {
+    bottom: -2%;
+    left: -4%;
+    width: clamp(210px, 56vw, 285px);
+    z-index: 9;
+  }
+
+  /* Center Typography: Refined, regal, breathable smartphone presence */
+  .invite-text {
+    width: calc(100% - 24px);
+    max-width: 420px;
+    padding: 0;
+  }
+
+  .invite-header {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin-bottom: clamp(8px, 1.8vh, 16px);
+  }
+
+  .crest-svg {
+    /* Smaller crest preserves breathing room for names on small screens */
+    width: clamp(72px, 18vw, 100px);
+    margin-bottom: 2px;
+  }
+
+  .crest-letters {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .txt-invocation {
+    font-size: clamp(0.76rem, 3.2vw, 1.0rem);
+    letter-spacing: 0.14em;
+    gap: 8px;
+  }
+
+  .txt-names {
+    width: 100%;
+    margin-bottom: clamp(4px, 1.0vh, 8px);
+  }
+
+  .partner-groom {
+    padding-right: clamp(4px, 1.5vw, 8px);
+  }
+
+  .partner-bride {
+    padding-left: clamp(4px, 1.5vw, 8px);
+  }
+
+  .cl {
+    font-size: clamp(1.9rem, 8.4vw, 2.65rem);
+    /* Tighter tracking on mobile avoids overflow on 360px-wide Androids */
+    letter-spacing: 0.06em;
+    padding: 0 0.5px;
+    font-weight: 400;
+  }
+
+  .name-amp {
+    margin: 0 clamp(2px, 0.8vw, 5px);
+    transform: translateY(-2px);
+  }
+
+  .name-amp .cl {
+    font-size: clamp(1.75rem, 7.8vw, 2.5rem);
+    font-weight: 400;
+  }
+
+  .partner-side {
+    font-size: clamp(0.60rem, 2.4vw, 0.75rem);
+    letter-spacing: 0.20em;
+    font-weight: 400;
+    margin-top: 4px;
+  }
+
+  /* Audio button — clear of OS gesture bar */
+  .audio-btn {
+    width: 42px; height: 42px;
+    bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    right: 16px;
+  }
+  .audio-icon { width: 14px; height: 14px; }
+
+  /* Scroll hint on mobile — sits above audio btn */
+  .scroll-hint {
+    bottom: max(56px, calc(env(safe-area-inset-bottom, 0px) + 56px));
+  }
+  .scroll-hint-text {
+    font-size: 0.54rem;
+    letter-spacing: 0.22em;
+  }
+}
+
+
+/* ── Reduced motion ───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

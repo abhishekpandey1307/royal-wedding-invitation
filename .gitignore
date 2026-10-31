@@ -1,0 +1,51 @@
+# Node & dependencies
+node_modules/
+.npm/
+
+# Build and local dev
+.vercel/
+dist/
+build/
+
+# Temporary test renders and python inspection outputs
+*.py
+*.ttf
+*.csv
+__pycache__/
+backups/
+probe_*.jpg
+test_*.jpg
+test-*.jpg
+test_*.png
+preview_*.jpg
+border_*.jpg
+device_*.jpg
+mobile_*.jpg
+opulent_*.jpg
+pc_desktop_*.jpg
+petals_test_*.jpg
+ref-*.jpg
+ref_*.jpg
+inspect_*.png
+current_mobile_issue.jpg
+debug_current_mobile_bg.jpg
+final_verified_ui.jpg
+media_*.jpg
+smartphone_specialized_*.jpg
+wm-check.jpg
+corner_*.jpg
+balanced_gravity_*.jpg
+mask_*_test.png
+
+# Large unused test video files
+*.mp4
+*.mp4.jpg
+
+# Story experimental files
+story.css
+story.js
+lib/
+
+# OS files
+.DS_Store
+Thumbs.db
