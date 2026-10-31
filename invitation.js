@@ -28,6 +28,12 @@ let initiated = false;
 const HAND_ANIM_END = 0.38; // Male & bridal hand animations end and settle here
 let NAMES_ANIM_END = 0.82;  // Exact milestone where text (names) animation ends
 
+// Audio state
+let audio = null;
+let audioPlaying = false;
+let audioStarted = false;
+let userMutedManually = false;
+
 /* ─── Boot: wait for assets ────────────────────────────────────────────── */
 const imgs = [
   document.querySelector('.hand-divine img'),
@@ -62,19 +68,25 @@ function boot() {
   if (hint) setTimeout(() => hint.classList.add('visible'), 1600);
 
   // Start gold dust
-  initDust();
+  try { initDust(); } catch (err) { console.warn('[Dust init]', err); }
 
   // Start ultra-realistic rose & lotus petals engine
-  initPetalsEngine();
+  try { initPetalsEngine(); } catch (err) { console.warn('[Petals init]', err); }
 
   // Audio: initialize immediately so ready for instant scroll trigger
-  initAudio();
+  try { initAudio(); } catch (err) { console.warn('[Audio init]', err); }
 
-  // Build scroll timeline
-  if (typeof gsap !== 'undefined') {
-    setInitial();
-    timeline = buildTimeline();
-    startScrollEngine();
+  // Build scroll timeline & attach scroll engine
+  try {
+    if (typeof gsap !== 'undefined') {
+      setInitial();
+      timeline = buildTimeline();
+      startScrollEngine();
+    } else {
+      console.error('GSAP not loaded');
+    }
+  } catch (err) {
+    console.error('[Timeline/Scroll init error]', err);
   }
 
   // Audio button
@@ -319,41 +331,67 @@ function buildTimeline() {
 
 /* ─── Scroll Engine ─────────────────────────────────────────────────────── */
 function startScrollEngine() {
-  const SCROLL_SPEED   = 0.0008;  // per wheel deltaY unit
-  const TOUCH_SPEED    = 1.6;     // multiplier for touch swipe
-  const LERP_FACTOR    = 0.055;   // smoothing — lower = more silky
+  const SCROLL_SPEED   = 0.0018;  // calibrated per wheel delta unit
+  const TOUCH_SPEED    = 2.2;     // responsive multiplier for smartphone swipe
+  const LERP_FACTOR    = 0.085;   // silky smooth responsive momentum
   const hint = document.getElementById('scroll-hint');
 
   let touchStartY = 0;
 
-  // Wheel
-  window.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    const delta = e.deltaY * SCROLL_SPEED;
+  // Wheel handling with deltaMode normalization (fixes Firefox line mode & trackpads)
+  function onWheel(e) {
+    if (e.cancelable) e.preventDefault();
+    let multiplier = 1;
+    if (e.deltaMode === 1) multiplier = 33; // DOM_DELTA_LINE
+    else if (e.deltaMode === 2) multiplier = window.innerHeight; // DOM_DELTA_PAGE
+    const delta = e.deltaY * multiplier * SCROLL_SPEED;
     targetProgress = Math.max(0, Math.min(1, targetProgress + delta));
     triggerAudioOnScroll();
-  }, { passive: false });
+  }
+
+  window.addEventListener('wheel', onWheel, { passive: false });
+  document.addEventListener('wheel', onWheel, { passive: false });
 
   // Touch start
-  window.addEventListener('touchstart', (e) => {
-    touchStartY = e.touches[0].clientY;
-    triggerAudioOnScroll();
-  }, { passive: true });
+  function onTouchStart(e) {
+    if (e.touches && e.touches[0]) {
+      touchStartY = e.touches[0].clientY;
+      triggerAudioOnScroll();
+    }
+  }
 
   // Touch move
-  window.addEventListener('touchmove', (e) => {
-    e.preventDefault();
-    const dy = touchStartY - e.touches[0].clientY;
-    touchStartY = e.touches[0].clientY;
+  function onTouchMove(e) {
+    if (!e.touches || !e.touches[0]) return;
+    if (e.cancelable) e.preventDefault();
+    const cy = e.touches[0].clientY;
+    const dy = touchStartY - cy;
+    touchStartY = cy;
     const delta = (dy / window.innerHeight) * TOUCH_SPEED;
     targetProgress = Math.max(0, Math.min(1, targetProgress + delta));
     triggerAudioOnScroll();
-  }, { passive: false });
+  }
 
-  // Keyboard
+  window.addEventListener('touchstart', onTouchStart, { passive: true });
+  document.addEventListener('touchstart', onTouchStart, { passive: true });
+  window.addEventListener('touchmove', onTouchMove, { passive: false });
+  document.addEventListener('touchmove', onTouchMove, { passive: false });
+
+  // Tap or click on scroll hint smoothly advances the royal unveiling
+  if (hint) {
+    hint.addEventListener('click', (e) => {
+      e.stopPropagation();
+      targetProgress = Math.min(1, targetProgress + 0.35);
+      triggerAudioOnScroll();
+    });
+  }
+
+  // Keyboard navigation
   window.addEventListener('keydown', (e) => {
-    if      (e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); targetProgress = Math.min(1, targetProgress + 0.12); triggerAudioOnScroll(); }
-    else if (e.key === 'ArrowUp')                    { e.preventDefault(); targetProgress = Math.max(0, targetProgress - 0.12); triggerAudioOnScroll(); }
+    if      (e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); targetProgress = Math.min(1, targetProgress + 0.15); triggerAudioOnScroll(); }
+    else if (e.key === 'ArrowUp')                    { e.preventDefault(); targetProgress = Math.max(0, targetProgress - 0.15); triggerAudioOnScroll(); }
+    else if (e.key === 'PageDown')                   { e.preventDefault(); targetProgress = Math.min(1, targetProgress + 0.35); triggerAudioOnScroll(); }
+    else if (e.key === 'PageUp')                     { e.preventDefault(); targetProgress = Math.max(0, targetProgress - 0.35); triggerAudioOnScroll(); }
     else if (e.key === 'End')                        { e.preventDefault(); targetProgress = 1; triggerAudioOnScroll(); }
     else if (e.key === 'Home')                       { e.preventDefault(); targetProgress = 0; triggerAudioOnScroll(); }
   });
@@ -396,16 +434,14 @@ function initDust() {
   new ResizeObserver(resize).observe(scene);
 
   const ctx = canvas.getContext('2d');
+  const isMobileDevice = window.innerWidth < 640;
   // Fewer, more refined particles on mobile — premium subtlety over quantity
-  const COUNT = window.innerWidth < 640 ? 12 : 40;
+  const COUNT = isMobileDevice ? 12 : 40;
   const particles = [];
 
   const W = () => canvas.width;
   const H = () => canvas.height;
 
-  for (let i = 0; i < COUNT; i++) particles.push(make(true));
-
-  const isMobileDevice = window.innerWidth < 640;
   function make(scatter) {
     // Smaller, more refined particles on mobile
     const maxR = isMobileDevice ? 0.8 : 1.2;
@@ -422,6 +458,8 @@ function initDust() {
       hue: 40 + Math.random() * 16,
     };
   }
+
+  for (let i = 0; i < COUNT; i++) particles.push(make(true));
 
   function draw() {
     ctx.clearRect(0, 0, W(), H());
@@ -448,11 +486,6 @@ function initDust() {
 }
 
 /* ─── Audio ─────────────────────────────────────────────────────────────── */
-let audio = null;
-let audioPlaying = false;
-let audioStarted = false;
-let userMutedManually = false;
-
 function triggerAudioOnScroll() {
   if (audioStarted || userMutedManually) return;
   startAudioPlayback();
