@@ -481,8 +481,8 @@ function startAudioPlayback() {
 function initAudio() {
   const btn = document.getElementById('audio-btn');
 
-  // Exact song uploaded by user
-  const exactTrack = 'श्री रघुवर कोमल कमल नयन को पहनाओ जयमाला  इंद्रेश उपाध्याय  सिद्धार्थ भावसार  रवींद्र जैन  तिलक - Tilak (mp3cut.net).mp3';
+  // Sacred marriage track: Shri Raghuvar
+  const exactTrack = 'shri-raghuvar-jaimala.mp3';
   const src = (typeof weddingData !== 'undefined' && weddingData.bgMusicSrc)
     ? weddingData.bgMusicSrc
     : exactTrack;

@@ -25,7 +25,7 @@ const weddingData = {
   venue: "THE RAMBAGH PALACE • JAIPUR, RAJASTHAN",
 
   /** Background heritage music track */
-  bgMusicSrc: "श्री रघुवर कोमल कमल नयन को पहनाओ जयमाला  इंद्रेश उपाध्याय  सिद्धार्थ भावसार  रवींद्र जैन  तिलक - Tilak (mp3cut.net).mp3",
+  bgMusicSrc: "shri-raghuvar-jaimala.mp3",
 
   /** Scroll sensitivity / animation duration factor (1.0 = standard) */
   animationSpeed: 1.0,
