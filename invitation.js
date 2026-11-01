@@ -837,6 +837,8 @@ function initPetalsEngine() {
       const perpX = -streamDirY;
       const perpY = streamDirX;
       p.wobblePhase += p.wobbleSpeed;
+      const swayForce = Math.sin(p.wobblePhase) * (p.swayAmp * 0.022) * (0.6 + flat * 0.6);
+
       // Soft text avoidance cushion: gently guides petals around central names
       let textDeflectX = 0;
       if (p.y > sceneH * 0.36 && p.y < sceneH * 0.60 && p.x > sceneW * 0.30 && p.x < sceneW * 0.70) {
