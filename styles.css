@@ -382,7 +382,6 @@ body { position: fixed; inset: 0; }
   margin-bottom: 0;
   opacity: 0; transform: translateY(14px);
   will-change: opacity, transform;
-  text-shadow: 0 1px 2px rgba(185, 140, 45, 0.35);
 }
 
 .inv-rule {
@@ -446,7 +445,7 @@ body { position: fixed; inset: 0; }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  filter: drop-shadow(1px 2px 0px rgba(195, 150, 50, 0.75)) drop-shadow(0 1px 2px rgba(79, 8, 18, 0.35));
+  filter: none;
 }
 
 /* The Calligraphy Glyph — Deep Royal Imperial Lacquer Crimson with 100% Contrast & Legibility */
@@ -491,7 +490,6 @@ body { position: fixed; inset: 0; }
   opacity: 0;
   transform: translateY(8px);
   will-change: opacity, transform;
-  text-shadow: 0 1px 1px rgba(195, 150, 50, 0.4);
 }
 
 @media (max-width: 900px) {
@@ -584,7 +582,7 @@ body { position: fixed; inset: 0; }
   .crest-svg {
     width: clamp(96px, 25vw, 125px);
     margin-bottom: clamp(4px, 1.0vh, 10px);
-    filter: drop-shadow(0 2px 10px rgba(122, 84, 22, 0.45));
+    filter: drop-shadow(0 1px 4px rgba(122, 84, 22, 0.22));
   }
 
   .crest-letters {
@@ -598,6 +596,8 @@ body { position: fixed; inset: 0; }
     letter-spacing: 0.16em;
     gap: 10px;
     margin-top: 2px;
+    text-shadow: none !important;
+    filter: none !important;
   }
 
   .inv-rule {
@@ -634,6 +634,8 @@ body { position: fixed; inset: 0; }
     letter-spacing: 0.05em;
     padding: 0 0.5px;
     font-weight: 400;
+    filter: none !important;
+    text-shadow: none !important;
   }
 
   .name-amp {
@@ -653,6 +655,8 @@ body { position: fixed; inset: 0; }
     font-weight: 600;
     margin-top: clamp(4px, 0.8vh, 7px);
     white-space: nowrap;
+    text-shadow: none !important;
+    filter: none !important;
   }
 
   /* Audio button — clear of OS gesture bar */
