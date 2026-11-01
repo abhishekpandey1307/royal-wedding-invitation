@@ -16,7 +16,7 @@
   <link rel="preload" as="image" href="assets/invitation/petals/pink_petal_1.webp" fetchpriority="low"/>
   <link rel="preload" as="image" href="assets/invitation/petals/pink_petal_2.webp" fetchpriority="low"/>
   <link rel="preload" as="image" href="assets/invitation/petals/pink_petal_3.webp" fetchpriority="low"/>
-  <link rel="stylesheet" href="styles.css?v=20261101_03"/>
+  <link rel="stylesheet" href="styles.css?v=20261101_04"/>
 </head>
 <body>
 
@@ -105,7 +105,7 @@
         <div class="invite-header">
           <!-- Royal Wedding Monogram Crest -->
           <div id="royal-crest" class="royal-crest" aria-hidden="true">
-            <svg viewBox="0 0 160 80" class="crest-svg">
+            <svg viewBox="0 0 160 85" class="crest-svg">
               <defs>
                 <linearGradient id="crestGold" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stop-color="#7a5416"/>
@@ -115,17 +115,19 @@
                   <stop offset="100%" stop-color="#5c3d00"/>
                 </linearGradient>
               </defs>
-              <!-- Imperial Crown Arch Flourish -->
-              <path d="M 34,44 Q 80,6 126,44" fill="none" stroke="url(#crestGold)" stroke-width="1.8" opacity="0.95"/>
-              <path d="M 48,46 Q 80,18 112,46" fill="none" stroke="url(#crestGold)" stroke-width="1.2" opacity="0.75"/>
-              <!-- Center crown diamond -->
-              <polygon points="80,6 86,15 80,24 74,15" fill="url(#crestGold)"/>
+              <!-- Imperial Crown Arch Canopy -->
+              <path d="M 36,46 Q 80,12 124,46" fill="none" stroke="url(#crestGold)" stroke-width="1.6" opacity="0.95"/>
+              <path d="M 48,48 Q 80,22 112,48" fill="none" stroke="url(#crestGold)" stroke-width="1.0" opacity="0.75"/>
+              <!-- Center Crown Diamond with Imperial Ruby -->
+              <polygon points="80,6 85,15 80,24 75,15" fill="url(#crestGold)"/>
               <circle cx="80" cy="15" r="2.2" fill="#8f1d2c"/>
               <!-- Monogram Letters V · A -->
-              <text x="80" y="65" text-anchor="middle" class="crest-letters" fill="url(#crestGold)">V · A</text>
-              <!-- Ornamental dots -->
-              <circle cx="56" cy="61" r="1.8" fill="url(#crestGold)"/>
-              <circle cx="104" cy="61" r="1.8" fill="url(#crestGold)"/>
+              <text x="80" y="56" text-anchor="middle" class="crest-letters" fill="url(#crestGold)">V · A</text>
+              <!-- Royal Base Flourish & Ornamental Pearls -->
+              <path d="M 54,64 Q 80,71 106,64" fill="none" stroke="url(#crestGold)" stroke-width="1.1" opacity="0.85"/>
+              <circle cx="50" cy="50" r="1.5" fill="url(#crestGold)"/>
+              <circle cx="110" cy="50" r="1.5" fill="url(#crestGold)"/>
+              <circle cx="80" cy="72" r="1.4" fill="url(#crestGold)"/>
             </svg>
           </div>
 
@@ -175,6 +177,6 @@
 
   <script src="wedding-data.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="invitation.js?v=20261101_03"></script>
+  <script src="invitation.js?v=20261101_04"></script>
 </body>
 </html>
