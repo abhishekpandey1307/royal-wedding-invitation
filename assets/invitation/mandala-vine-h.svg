@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="16" viewBox="0 0 32 16">
+  <defs>
+    <linearGradient id="gV" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7a5416"/>
+      <stop offset="25%" stop-color="#b88924"/>
+      <stop offset="50%" stop-color="#faebaa"/>
+      <stop offset="75%" stop-color="#b88924"/>
+      <stop offset="100%" stop-color="#7a5416"/>
+    </linearGradient>
+  </defs>
+  <!-- Sinuous Floral Vine Wave -->
+  <path d="M 0,8 Q 8,3.2 16,8 Q 24,12.8 32,8" fill="none" stroke="url(#gV)" stroke-width="1.1" opacity="0.9"/>
+  <!-- Top Lotus Bud with golden glow fill -->
+  <path d="M 7.5,5.2 Q 7.5,1.5 9.5,2.4 Q 9.5,6.2 7.5,5.2" fill="#faebaa" fill-opacity="0.3" stroke="url(#gV)" stroke-width="0.8"/>
+  <circle cx="8.5" cy="2.5" r="0.9" fill="#c9a030"/>
+  <!-- Bottom Lotus Bud with golden glow fill -->
+  <path d="M 23.5,10.8 Q 23.5,14.5 21.5,13.6 Q 21.5,9.8 23.5,10.8" fill="#faebaa" fill-opacity="0.3" stroke="url(#gV)" stroke-width="0.8"/>
+  <circle cx="22.5" cy="13.5" r="0.9" fill="#c9a030"/>
+  <!-- Auspicious 4-Petaled Gold Floret at inflection center -->
+  <polygon points="16,6.2 17.6,8 16,9.8 14.4,8" fill="#c9a030"/>
+  <circle cx="16" cy="8" r="0.7" fill="#8f1d2c"/>
+  <!-- Moti pearls -->
+  <circle cx="4" cy="6.2" r="0.6" fill="#c9a030" opacity="0.8"/>
+  <circle cx="28" cy="9.8" r="0.6" fill="#c9a030" opacity="0.8"/>
+</svg>

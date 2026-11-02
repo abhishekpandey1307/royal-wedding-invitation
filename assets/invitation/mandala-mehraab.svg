@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 26" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gM" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7a5416" stop-opacity="0.2"/>
+      <stop offset="25%" stop-color="#c9a030"/>
+      <stop offset="50%" stop-color="#faebaa"/>
+      <stop offset="75%" stop-color="#c9a030"/>
+      <stop offset="100%" stop-color="#7a5416" stop-opacity="0.2"/>
+    </linearGradient>
+    <radialGradient id="gMr" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#f03e56"/>
+      <stop offset="50%" stop-color="#b01326"/>
+      <stop offset="100%" stop-color="#4a040d"/>
+    </radialGradient>
+  </defs>
+  <!-- Rajput Scalloped Mehraab Arch -->
+  <path d="M 8,2 Q 34,16 60,16 Q 86,16 112,2" fill="none" stroke="url(#gM)" stroke-width="1.3" opacity="0.9"/>
+  <path d="M 20,2 Q 38,12 60,12 Q 82,12 100,2" fill="none" stroke="url(#gM)" stroke-width="0.85" opacity="0.7"/>
+  <!-- Sacred Lotus Crown Finial -->
+  <polygon points="60,2 64,8 60,14 56,8" fill="url(#gM)"/>
+  <circle cx="60" cy="8" r="2.4" fill="url(#gMr)" stroke="url(#gM)" stroke-width="0.5"/>
+  <circle cx="59.3" cy="7.3" r="0.6" fill="#ffffff" opacity="0.85"/>
+  <!-- Filigree pearl accents -->
+  <circle cx="44" cy="7.5" r="1.3" fill="#c9a030"/>
+  <circle cx="76" cy="7.5" r="1.3" fill="#c9a030"/>
+  <circle cx="28" cy="4.5" r="1.1" fill="#c9a030"/>
+  <circle cx="92" cy="4.5" r="1.1" fill="#c9a030"/>
+  <!-- Hanging moti drop at center apex -->
+  <path d="M 60,16 L 60,21" fill="none" stroke="url(#gM)" stroke-width="0.8"/>
+  <circle cx="60" cy="22" r="1.3" fill="url(#gM)"/>
+</svg>
