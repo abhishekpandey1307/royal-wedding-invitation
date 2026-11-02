@@ -183,13 +183,13 @@ body { position: fixed; inset: 0; }
 /* ── Authentic Indian Traditional Hashiya (Royal 24K Gold Foil & Gemstone Border Frame) ────────
    Inspired by heritage Sabyasachi, Rajputana (Mewar), and Pichwai royal wedding folios:
    - Genuine 3D embossed 24K gold leaf texture with tactile metallic relief
-   - Continuous Pichwai lotus creeper vine (bel) with elephants, peacocks, and micro-pearl borders
+   - Continuous Pichwai lotus creeper vine (bel) with blooming lotuses and micro-pearl borders
    - Four magnificent corner medallions studded with faceted rubies, emeralds, and natural pearls
    - Sized responsively to preserve generous breathing space for all typography and divine hands
 ────────────────────────────────────────────────────────────────────────────── */
 :root {
-  --border-band-thickness: clamp(22px, 5.2vw, 34px);
-  --border-medallion-size: clamp(48px, 11vw, 68px);
+  --border-band-thickness: clamp(26px, 6.2vw, 38px);
+  --border-medallion-size: clamp(52px, 12vw, 76px);
 }
 
 .mandala-border-frame {
@@ -213,7 +213,6 @@ body { position: fixed; inset: 0; }
   height: var(--border-band-thickness);
   background: url('assets/invitation/royal-band-h.webp') repeat-x center top;
   background-size: auto 100%;
-  box-shadow: 0 1px 4px rgba(92, 61, 0, 0.15);
 }
 
 .frame-bottom {
@@ -224,7 +223,6 @@ body { position: fixed; inset: 0; }
   background: url('assets/invitation/royal-band-h.webp') repeat-x center bottom;
   background-size: auto 100%;
   transform: scaleY(-1);
-  box-shadow: 0 -1px 4px rgba(92, 61, 0, 0.15);
 }
 
 .frame-left {
@@ -234,7 +232,7 @@ body { position: fixed; inset: 0; }
   width: var(--border-band-thickness);
   background: url('assets/invitation/royal-band-v.webp') repeat-y left center;
   background-size: 100% auto;
-  box-shadow: 1px 0 4px rgba(92, 61, 0, 0.15);
+  transform: scaleX(-1);
 }
 
 .frame-right {
@@ -244,8 +242,6 @@ body { position: fixed; inset: 0; }
   width: var(--border-band-thickness);
   background: url('assets/invitation/royal-band-v.webp') repeat-y right center;
   background-size: 100% auto;
-  transform: scaleX(-1);
-  box-shadow: -1px 0 4px rgba(92, 61, 0, 0.15);
 }
 
 /* 4 Corner Gemstone Medallions: Always 1:1 Aspect Ratio, Never Distorted */
@@ -255,7 +251,7 @@ body { position: fixed; inset: 0; }
   height: var(--border-medallion-size);
   z-index: 14;
   pointer-events: none;
-  filter: drop-shadow(0 2px 5px rgba(92, 61, 0, 0.3));
+  filter: drop-shadow(0 2px 6px rgba(92, 61, 0, 0.35));
 }
 
 .mandala-corner img {
@@ -285,7 +281,6 @@ body { position: fixed; inset: 0; }
   right: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
 }
 
-/* Center Mehraab arch hidden or subtle */
 .frame-mehraab {
   display: none;
 }
