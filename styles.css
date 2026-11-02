@@ -180,16 +180,14 @@ body { position: fixed; inset: 0; }
   display: none;
 }
 
-/* ── Authentic Indian Traditional Hashiya (Royal 24K Gold Foil & Gemstone Border Frame) ────────
-   Inspired by heritage Sabyasachi, Rajputana (Mewar), and Pichwai royal wedding folios:
-   - Genuine 3D embossed 24K gold leaf texture with tactile metallic relief
-   - Continuous Pichwai lotus creeper vine (bel) with blooming lotuses and micro-pearl borders
-   - Four magnificent corner medallions studded with faceted rubies, emeralds, and natural pearls
-   - Sized responsively to preserve generous breathing space for all typography and divine hands
+/* ── Authentic Indian Traditional Hashiya (Royal 24K Gold Foil Pichwai Border) ─
+   Printed directly into the Wasli paper grain using multiply blending:
+   - Zero drop-shadows or floating sticker badges (100% natural, embedded feel)
+   - Continuous 45° mitered 24K gold Pichwai lotus creeper vine (bel)
+   - Pure, uncompromised breathing room for typography, mandalas, and hands
 ────────────────────────────────────────────────────────────────────────────── */
 :root {
-  --border-band-thickness: clamp(26px, 6.2vw, 38px);
-  --border-medallion-size: clamp(52px, 12vw, 76px);
+  --border-band-thickness: clamp(18px, 4.2vw, 28px);
 }
 
 .mandala-border-frame {
@@ -198,9 +196,11 @@ body { position: fixed; inset: 0; }
   z-index: 12;
   pointer-events: none;
   box-sizing: border-box;
+  mix-blend-mode: multiply;
+  opacity: 0.92;
 }
 
-/* 4 Sinuous Pichwai Lotus Vine Edges with 24K Gold Foil Relief */
+/* 4 Sinuous Pichwai Lotus Vine Edges with 45° Mitered Seamless Corners */
 .frame-edge {
   position: absolute;
   pointer-events: none;
@@ -213,6 +213,7 @@ body { position: fixed; inset: 0; }
   height: var(--border-band-thickness);
   background: url('assets/invitation/royal-band-h.webp') repeat-x center top;
   background-size: auto 100%;
+  clip-path: polygon(0 0, 100% 0, calc(100% - var(--border-band-thickness)) 100%, var(--border-band-thickness) 100%);
 }
 
 .frame-bottom {
@@ -223,6 +224,7 @@ body { position: fixed; inset: 0; }
   background: url('assets/invitation/royal-band-h.webp') repeat-x center bottom;
   background-size: auto 100%;
   transform: scaleY(-1);
+  clip-path: polygon(var(--border-band-thickness) 0, calc(100% - var(--border-band-thickness)) 0, 100% 100%, 0 100%);
 }
 
 .frame-left {
@@ -233,6 +235,7 @@ body { position: fixed; inset: 0; }
   background: url('assets/invitation/royal-band-v.webp') repeat-y left center;
   background-size: 100% auto;
   transform: scaleX(-1);
+  clip-path: polygon(0 0, 100% var(--border-band-thickness), 100% calc(100% - var(--border-band-thickness)), 0 100%);
 }
 
 .frame-right {
@@ -242,47 +245,7 @@ body { position: fixed; inset: 0; }
   width: var(--border-band-thickness);
   background: url('assets/invitation/royal-band-v.webp') repeat-y right center;
   background-size: 100% auto;
-}
-
-/* 4 Corner Gemstone Medallions: Always 1:1 Aspect Ratio, Never Distorted */
-.mandala-corner {
-  position: absolute;
-  width: var(--border-medallion-size);
-  height: var(--border-medallion-size);
-  z-index: 14;
-  pointer-events: none;
-  filter: drop-shadow(0 2px 6px rgba(92, 61, 0, 0.35));
-}
-
-.mandala-corner img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border-radius: 50%;
-}
-
-.corner-tl {
-  top: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
-  left: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
-}
-
-.corner-tr {
-  top: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
-  right: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
-}
-
-.corner-bl {
-  bottom: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
-  left: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
-}
-
-.corner-br {
-  bottom: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
-  right: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
-}
-
-.frame-mehraab {
-  display: none;
+  clip-path: polygon(0 var(--border-band-thickness), 100% 0, 100% 100%, 0 calc(100% - var(--border-band-thickness)));
 }
 
 
