@@ -180,72 +180,201 @@ body { position: fixed; inset: 0; }
   display: none;
 }
 
-/* ── Authentic Royal Indian Traditional Hashiya (Pichwai Lotus Creeper Bel) ──
-   Curated directly from royal Indian couture wedding stationery & miniature folios:
-   - Sinuous S-curve 24K champagne gold Pichwai floral creeper vine
-   - 100% pure line-art (unfilled, delicate contour strokes matching the central mandalas)
-   - Stately vertical border margins flanking the left & right edges
-   - Continuous delicate gold perimeter hairlines framing the royal card
-   - Layered at z-index: 1 so the central mandalas (z-index: 2) and sacred hands
-     (z-index: 9, 10) float proudly in front without any collision or overlap
+/* ── Authentic Royal Indian Heritage Border Frame with Real Moti/Pearl Latkans ─
+   Designed with authentic Rajputana architectural Jharokha arches,
+   Jaipur marble jaali geometries, Pichwai lotus vines, and real-like 3D
+   luminous moti/pearl & 24K gold filigree hanging latkans.
 ────────────────────────────────────────────────────────────────────────────── */
 :root {
-  --bel-width: clamp(16px, 3.8vw, 24px);
+  --heritage-edge-thickness: clamp(16px, 4.0vw, 22px);
+  --heritage-corner-size: clamp(52px, 12vw, 76px);
+  --heritage-mehraab-w: clamp(96px, 22vw, 140px);
+  --heritage-mehraab-h: clamp(20px, 4.8vw, 30px);
+  --latkan-w: clamp(30px, 7.2vw, 48px);
+  --latkan-h: clamp(120px, 26vh, 195px);
 }
 
 .mandala-border-frame {
   position: absolute;
-  inset: clamp(5px, 1.2vw, 10px);
-  z-index: 1; /* Printed directly into Wasli paper, behind mandalas & hands */
+  inset: clamp(6px, 1.4vw, 14px);
+  z-index: 12;
   pointer-events: none;
   box-sizing: border-box;
 }
 
-/* Outer boundary fine gold hairline */
+/* Continuous 24K gold hairlines around the card */
 .mandala-border-frame::before {
   content: '';
   position: absolute;
   inset: 0;
-  border: 1px solid rgba(222, 204, 141, 0.45);
+  border: 1.2px solid rgba(196, 150, 40, 0.85);
   pointer-events: none;
 }
 
-/* Inner margin fine gold hairline */
 .mandala-border-frame::after {
   content: '';
   position: absolute;
-  inset: var(--bel-width);
-  border: 0.75px solid rgba(222, 204, 141, 0.28);
+  inset: var(--heritage-edge-thickness);
+  border: 0.8px solid rgba(196, 150, 40, 0.55);
   pointer-events: none;
 }
 
-/* Vertical Pichwai Lotus Creeper Borders on Left and Right */
+/* 4 Pichwai Lotus Creeper Edges with Moti Pearls */
 .frame-edge {
   position: absolute;
   pointer-events: none;
 }
 
+.frame-top {
+  top: 0;
+  left: var(--heritage-corner-size);
+  right: var(--heritage-corner-size);
+  height: var(--heritage-edge-thickness);
+  background: url('assets/invitation/heritage-vine-h.svg') repeat-x center center;
+  background-size: auto 100%;
+}
+
+.frame-bottom {
+  bottom: 0;
+  left: var(--heritage-corner-size);
+  right: var(--heritage-corner-size);
+  height: var(--heritage-edge-thickness);
+  background: url('assets/invitation/heritage-vine-h.svg') repeat-x center center;
+  background-size: auto 100%;
+  transform: scaleY(-1);
+}
+
 .frame-left {
   left: 0;
-  top: 0;
-  bottom: 0;
-  width: var(--bel-width);
-  background: url('assets/invitation/pichwai-bel-v.webp') repeat-y left center;
+  top: var(--heritage-corner-size);
+  bottom: var(--heritage-corner-size);
+  width: var(--heritage-edge-thickness);
+  background: url('assets/invitation/heritage-vine-v.svg') repeat-y center center;
   background-size: 100% auto;
-  opacity: 0.95;
 }
 
 .frame-right {
   right: 0;
-  top: 0;
-  bottom: 0;
-  width: var(--bel-width);
-  background: url('assets/invitation/pichwai-bel-v.webp') repeat-y right center;
+  top: var(--heritage-corner-size);
+  bottom: var(--heritage-corner-size);
+  width: var(--heritage-edge-thickness);
+  background: url('assets/invitation/heritage-vine-v.svg') repeat-y center center;
   background-size: 100% auto;
   transform: scaleX(-1);
-  opacity: 0.95;
 }
 
+/* 4 Corner Rajput Jharokha Spandrels: Strict 1:1 Aspect Ratio, Never Distorted */
+.mandala-corner {
+  position: absolute;
+  width: var(--heritage-corner-size);
+  height: var(--heritage-corner-size);
+  z-index: 14;
+  pointer-events: none;
+}
+
+.mandala-corner img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.corner-tl {
+  top: 0;
+  left: 0;
+}
+
+.corner-tr {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.corner-bl {
+  bottom: 0;
+  left: 0;
+  transform: scaleY(-1);
+}
+
+.corner-br {
+  bottom: 0;
+  right: 0;
+  transform: scale(-1, -1);
+}
+
+/* Top & Bottom Rambagh Mehraab Arches */
+.frame-mehraab {
+  position: absolute;
+  left: 50%;
+  width: var(--heritage-mehraab-w);
+  height: var(--heritage-mehraab-h);
+  z-index: 15;
+  pointer-events: none;
+}
+
+.frame-mehraab img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mehraab-top {
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.mehraab-bottom {
+  bottom: 0;
+  transform: translateX(-50%) scaleY(-1);
+}
+
+/* Real-Like Moti/Pearl Golden Latkans Hanging Gracefully on the Borders */
+.border-latkan {
+  position: absolute;
+  width: var(--latkan-w);
+  height: var(--latkan-h);
+  z-index: 16;
+  pointer-events: none;
+  transform-origin: top center;
+}
+
+.border-latkan img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+  display: block;
+}
+
+.latkan-tl {
+  top: calc(var(--heritage-edge-thickness) + 4px);
+  left: clamp(14px, 3.4vw, 28px);
+  animation: latkan-sway-left 6.5s ease-in-out infinite alternate;
+}
+
+.latkan-tr {
+  top: calc(var(--heritage-edge-thickness) + 4px);
+  right: clamp(14px, 3.4vw, 28px);
+  animation: latkan-sway-right 7.0s ease-in-out infinite alternate;
+}
+
+@keyframes latkan-sway-left {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(1.4deg); }
+  100% { transform: rotate(-0.9deg); }
+}
+
+@keyframes latkan-sway-right {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(-1.4deg); }
+  100% { transform: rotate(0.9deg); }
+}
+
+@media (min-width: 769px) {
+  :root {
+    --latkan-w: clamp(38px, 3.2vw, 54px);
+    --latkan-h: clamp(150px, 25vh, 220px);
+  }
+}
 
 /* ── Atmospheric Warm Vignette (No pitch black) ──────────────────────────── */
 .vignette {

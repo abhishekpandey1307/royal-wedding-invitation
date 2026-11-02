@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gold24k" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff8db"/>
+      <stop offset="22%" stop-color="#ecc665"/>
+      <stop offset="48%" stop-color="#c49726"/>
+      <stop offset="72%" stop-color="#fcedb4"/>
+      <stop offset="88%" stop-color="#aa7e1a"/>
+      <stop offset="100%" stop-color="#644405"/>
+    </linearGradient>
+    <linearGradient id="goldH" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#704b08"/>
+      <stop offset="16%" stop-color="#d4af37"/>
+      <stop offset="34%" stop-color="#fff5cc"/>
+      <stop offset="66%" stop-color="#d4af37"/>
+      <stop offset="84%" stop-color="#9a7018"/>
+      <stop offset="100%" stop-color="#543704"/>
+    </linearGradient>
+    <radialGradient id="goldSphere" cx="34%" cy="28%" r="66%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="15%" stop-color="#fff3c4"/>
+      <stop offset="40%" stop-color="#e8be52"/>
+      <stop offset="70%" stop-color="#b88a22"/>
+      <stop offset="90%" stop-color="#7e590e"/>
+      <stop offset="100%" stop-color="#462f04"/>
+    </radialGradient>
+    <radialGradient id="pearlMoti" cx="32%" cy="28%" r="68%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="14%" stop-color="#fdfbf7"/>
+      <stop offset="38%" stop-color="#faf5ec"/>
+      <stop offset="68%" stop-color="#ece2d1"/>
+      <stop offset="88%" stop-color="#dac8b0"/>
+      <stop offset="98%" stop-color="#bea88c"/>
+      <stop offset="100%" stop-color="#a08b70"/>
+    </radialGradient>
+    <radialGradient id="dropMoti" cx="30%" cy="32%" r="72%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="18%" stop-color="#fefcf8"/>
+      <stop offset="44%" stop-color="#f8f1e5"/>
+      <stop offset="74%" stop-color="#e8d9c2"/>
+      <stop offset="90%" stop-color="#d4bfa5"/>
+      <stop offset="98%" stop-color="#b69e80"/>
+      <stop offset="100%" stop-color="#998164"/>
+    </radialGradient>
+    <radialGradient id="rubyGem" cx="34%" cy="28%" r="66%">
+      <stop offset="0%" stop-color="#ff607b"/>
+      <stop offset="38%" stop-color="#d4142f"/>
+      <stop offset="75%" stop-color="#780516"/>
+      <stop offset="100%" stop-color="#380007"/>
+    </radialGradient>
+    <filter id="latkanShadow" x="-30%" y="-15%" width="160%" height="135%">
+      <feDropShadow dx="0.5" dy="2.0" stdDeviation="1.5" flood-color="#3a2815" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <g filter="url(#latkanShadow)">
+    <!-- ── Top Suspension Ring & Braided Zari Cord ── -->
+    <circle cx="32" cy="5.5" r="4.0" fill="none" stroke="url(#gold24k)" stroke-width="1.4"/>
+    <circle cx="32" cy="5.5" r="2.2" fill="none" stroke="#543704" stroke-width="0.4" opacity="0.5"/>
+    <circle cx="32" cy="11.5" r="2.2" fill="url(#goldSphere)"/>
+    <circle cx="31.384" cy="10.884" r="0.55" fill="#ffffff" opacity="0.75"/>
+    <ellipse cx="32" cy="15.0" rx="3.2" ry="1.1" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="32" cy="14.8" rx="2.4000000000000004" ry="0.66" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <line x1="32" y1="16.3" x2="32" y2="24.7" stroke="url(#goldH)" stroke-width="0.7"/>
+    <circle cx="32" cy="20.5" r="3.2" fill="url(#pearlMoti)"/>
+    <ellipse cx="31.04" cy="19.54" rx="1.024" ry="0.7040000000000001" transform="rotate(-30 31.04 19.54)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="31.424" cy="19.988" r="0.32000000000000006" fill="#ffffff" opacity="0.6"/>
+    <path d="M 32.96,23.060000000000002 A 3.2 3.2 0 0 0 34.56,21.46" fill="none" stroke="#fff8eb" stroke-width="0.48" opacity="0.32"/>
+    <ellipse cx="32" cy="24.599999999999998" rx="2.176" ry="0.95" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="32" cy="24.4" rx="1.6320000000000001" ry="0.57" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <line x1="32" y1="24.900000000000002" x2="32" y2="34.7" stroke="url(#goldH)" stroke-width="0.7"/>
+    <circle cx="32" cy="29.8" r="3.9" fill="url(#pearlMoti)"/>
+    <ellipse cx="30.83" cy="28.630000000000003" rx="1.248" ry="0.858" transform="rotate(-30 30.83 28.630000000000003)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="31.298" cy="29.176000000000002" r="0.39" fill="#ffffff" opacity="0.6"/>
+    <path d="M 33.17,32.92 A 3.9 3.9 0 0 0 35.12,30.97" fill="none" stroke="#fff8eb" stroke-width="0.585" opacity="0.32"/>
+    <ellipse cx="32" cy="34.6" rx="2.652" ry="0.95" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="32" cy="34.4" rx="1.989" ry="0.57" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <line x1="32" y1="34.8" x2="32" y2="46.2" stroke="url(#goldH)" stroke-width="0.7"/>
+    <circle cx="32" cy="40.5" r="4.7" fill="url(#pearlMoti)"/>
+    <ellipse cx="30.59" cy="39.09" rx="1.504" ry="1.034" transform="rotate(-30 30.59 39.09)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="31.154" cy="39.748000000000005" r="0.47000000000000003" fill="#ffffff" opacity="0.6"/>
+    <path d="M 33.41,44.26 A 4.7 4.7 0 0 0 35.76,41.91" fill="none" stroke="#fff8eb" stroke-width="0.705" opacity="0.32"/>
+    <ellipse cx="32" cy="46.1" rx="3.196" ry="0.95" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="32" cy="45.9" rx="2.3970000000000002" ry="0.57" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <line x1="32" y1="46.3" x2="32" y2="59.3" stroke="url(#goldH)" stroke-width="0.7"/>
+    <circle cx="32" cy="52.8" r="5.5" fill="url(#pearlMoti)"/>
+    <ellipse cx="30.35" cy="51.15" rx="1.76" ry="1.21" transform="rotate(-30 30.35 51.15)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="31.01" cy="51.92" r="0.55" fill="#ffffff" opacity="0.6"/>
+    <path d="M 33.65,57.199999999999996 A 5.5 5.5 0 0 0 36.4,54.449999999999996" fill="none" stroke="#fff8eb" stroke-width="0.825" opacity="0.32"/>
+    <ellipse cx="32" cy="59.199999999999996" rx="3.74" ry="0.95" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="32" cy="58.99999999999999" rx="2.805" ry="0.57" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <!-- ── Royal Kundan Gold Bead & Ruby Cabochon ── -->
+    <ellipse cx="32" cy="65" rx="6.5" ry="3.6" fill="url(#goldH)" stroke="#644405" stroke-width="0.5"/>
+    <ellipse cx="32" cy="65" rx="3.0" ry="2.4" fill="url(#rubyGem)"/>
+    <circle cx="31.0" cy="64.0" r="0.7" fill="#ffffff" opacity="0.85"/>
+    <ellipse cx="32" cy="70.0" rx="5.0" ry="1.2" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="32" cy="69.8" rx="3.75" ry="0.72" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <!-- ── Royal 3D Filigree Jhumka Bell Dome ── -->
+    <rect x="27" y="71.5" width="10" height="3.5" rx="1.7" fill="url(#goldH)" stroke="#644405" stroke-width="0.45"/>
+    <path d="M 27.5,74.5 C 25,82 10.5,93 9.5,99 C 9.5,102.5 15,104.5 32,104.5 C 49,104.5 54.5,102.5 54.5,99 C 53.5,93 39,82 36.5,74.5 Z" fill="url(#goldH)" stroke="#704b08" stroke-width="0.7"/>
+    <path d="M 29,75 C 28,81 21,90 20,97 C 26,99.5 38,99.5 44,97 C 43,90 36,81 35,75 Z" fill="url(#gold24k)" opacity="0.5"/>
+    <path d="M 32,74.5 L 32,104.5" fill="none" stroke="#543704" stroke-width="0.9" opacity="0.75"/>
+    <path d="M 29.5,75 C 27.5,82 22,91 20,98.5" fill="none" stroke="#543704" stroke-width="0.7" opacity="0.75"/>
+    <path d="M 34.5,75 C 36.5,82 42,91 44,98.5" fill="none" stroke="#543704" stroke-width="0.7" opacity="0.75"/>
+    <path d="M 28,75.5 C 24,83 16,92 14,97" fill="none" stroke="#543704" stroke-width="0.6" opacity="0.75"/>
+    <path d="M 36,75.5 C 40,83 48,92 50,97" fill="none" stroke="#543704" stroke-width="0.6" opacity="0.75"/>
+    <g fill="none" stroke="#543704" stroke-width="0.7">
+      <path d="M 25,98 C 25,89 39,89 39,98"/>
+      <path d="M 27.5,98 C 27.5,92 36.5,92 36.5,98"/>
+      <path d="M 14,96 C 15.5,89 24.5,89 25,96"/>
+      <path d="M 39,96 C 39.5,89 48.5,89 50,96"/>
+    </g>
+    <circle cx="32" cy="90.5" r="1.5" fill="url(#rubyGem)"/>
+    <circle cx="31.5" cy="90.0" r="0.5" fill="#ffffff" opacity="0.85"/>
+    <ellipse cx="32" cy="101" rx="22" ry="4.2" fill="#382404" opacity="0.35"/>
+    <ellipse cx="32" cy="100.5" rx="22" ry="3.8" fill="none" stroke="url(#gold24k)" stroke-width="1.3"/>
+    <ellipse cx="32" cy="99.5" rx="20.5" ry="3.2" fill="none" stroke="#fff8db" stroke-width="0.5" opacity="0.8"/>
+    <line x1="12.5" y1="100.5" x2="12.5" y2="102.5" stroke="#704b08" stroke-width="0.5"/>
+    <circle cx="12.5" cy="103.9" r="1.4" fill="url(#goldSphere)"/>
+    <circle cx="12.108" cy="103.50800000000001" r="0.35" fill="#ffffff" opacity="0.75"/>
+    <line x1="18.0" y1="101.8" x2="18.0" y2="103.8" stroke="#704b08" stroke-width="0.5"/>
+    <circle cx="18.0" cy="105.2" r="1.4" fill="url(#goldSphere)"/>
+    <circle cx="17.608" cy="104.808" r="0.35" fill="#ffffff" opacity="0.75"/>
+    <line x1="24.5" y1="102.7" x2="24.5" y2="104.7" stroke="#704b08" stroke-width="0.5"/>
+    <circle cx="24.5" cy="106.10000000000001" r="1.4" fill="url(#goldSphere)"/>
+    <circle cx="24.108" cy="105.70800000000001" r="0.35" fill="#ffffff" opacity="0.75"/>
+    <line x1="32.0" y1="103.0" x2="32.0" y2="105.0" stroke="#704b08" stroke-width="0.5"/>
+    <circle cx="32.0" cy="106.4" r="1.4" fill="url(#goldSphere)"/>
+    <circle cx="31.608" cy="106.00800000000001" r="0.35" fill="#ffffff" opacity="0.75"/>
+    <line x1="39.5" y1="102.7" x2="39.5" y2="104.7" stroke="#704b08" stroke-width="0.5"/>
+    <circle cx="39.5" cy="106.10000000000001" r="1.4" fill="url(#goldSphere)"/>
+    <circle cx="39.108" cy="105.70800000000001" r="0.35" fill="#ffffff" opacity="0.75"/>
+    <line x1="46.0" y1="101.8" x2="46.0" y2="103.8" stroke="#704b08" stroke-width="0.5"/>
+    <circle cx="46.0" cy="105.2" r="1.4" fill="url(#goldSphere)"/>
+    <circle cx="45.608" cy="104.808" r="0.35" fill="#ffffff" opacity="0.75"/>
+    <line x1="51.5" y1="100.5" x2="51.5" y2="102.5" stroke="#704b08" stroke-width="0.5"/>
+    <circle cx="51.5" cy="103.9" r="1.4" fill="url(#goldSphere)"/>
+    <circle cx="51.108" cy="103.50800000000001" r="0.35" fill="#ffffff" opacity="0.75"/>
+    <!-- ── Left Cascading Pearl Strand ── -->
+    <line x1="19" y1="104" x2="19" y2="112" stroke="url(#goldH)" stroke-width="0.6"/>
+    <circle cx="19" cy="116" r="3.2" fill="url(#pearlMoti)"/>
+    <ellipse cx="18.04" cy="115.04" rx="1.024" ry="0.7040000000000001" transform="rotate(-30 18.04 115.04)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="18.424" cy="115.488" r="0.32000000000000006" fill="#ffffff" opacity="0.6"/>
+    <path d="M 19.96,118.56 A 3.2 3.2 0 0 0 21.560000000000002,116.96" fill="none" stroke="#fff8eb" stroke-width="0.48" opacity="0.32"/>
+    <ellipse cx="19" cy="120.5" rx="2.2" ry="0.75" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="19" cy="120.3" rx="1.6500000000000001" ry="0.44999999999999996" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <circle cx="19" cy="126" r="3.7" fill="url(#pearlMoti)"/>
+    <ellipse cx="17.89" cy="124.89" rx="1.1840000000000002" ry="0.8140000000000001" transform="rotate(-30 17.89 124.89)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="18.334" cy="125.408" r="0.37000000000000005" fill="#ffffff" opacity="0.6"/>
+    <path d="M 20.11,128.96 A 3.7 3.7 0 0 0 21.96,127.11" fill="none" stroke="#fff8eb" stroke-width="0.555" opacity="0.32"/>
+    <ellipse cx="19" cy="131.0" rx="2.4" ry="0.75" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="19" cy="130.8" rx="1.7999999999999998" ry="0.44999999999999996" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <circle cx="19" cy="137" r="4.2" fill="url(#pearlMoti)"/>
+    <ellipse cx="17.74" cy="135.74" rx="1.344" ry="0.924" transform="rotate(-30 17.74 135.74)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="18.244" cy="136.328" r="0.42000000000000004" fill="#ffffff" opacity="0.6"/>
+    <path d="M 20.26,140.36 A 4.2 4.2 0 0 0 22.36,138.26" fill="none" stroke="#fff8eb" stroke-width="0.63" opacity="0.32"/>
+    <line x1="19" y1="142" x2="19" y2="147" stroke="url(#goldH)" stroke-width="0.6"/>
+    <path d="M 14.379999999999999,148.2 Q 19,144.2 23.62,148.2 L 22.36,151.2 Q 19,149.0 15.64,151.2 Z" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <path d="M 19,147 C 16.375,152.7 12.91,156.88 12.91,160.68 A 6.09 5.32 0 0 0 25.09,160.68 C 25.09,156.88 21.625,152.7 19,147 Z" fill="url(#dropMoti)"/>
+    <path d="M 17.95,151.56 Q 14.379999999999999,159.16 15.01,160.68 Q 16.9,159.73000000000002 18.475,152.7 Z" fill="#ffffff" opacity="0.82"/>
+    <path d="M 21.1,164.48000000000002 A 6.09 5.32 0 0 0 24.565,160.68" fill="none" stroke="#fff8eb" stroke-width="0.84" opacity="0.35"/>
+    <circle cx="19" cy="167.4" r="1.5" fill="url(#goldSphere)"/>
+    <circle cx="18.58" cy="166.98000000000002" r="0.375" fill="#ffffff" opacity="0.75"/>
+    <circle cx="19" cy="169.6" r="0.9" fill="url(#goldSphere)"/>
+    <!-- ── Right Cascading Pearl Strand ── -->
+    <line x1="45" y1="104" x2="45" y2="112" stroke="url(#goldH)" stroke-width="0.6"/>
+    <circle cx="45" cy="116" r="3.2" fill="url(#pearlMoti)"/>
+    <ellipse cx="44.04" cy="115.04" rx="1.024" ry="0.7040000000000001" transform="rotate(-30 44.04 115.04)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="44.424" cy="115.488" r="0.32000000000000006" fill="#ffffff" opacity="0.6"/>
+    <path d="M 45.96,118.56 A 3.2 3.2 0 0 0 47.56,116.96" fill="none" stroke="#fff8eb" stroke-width="0.48" opacity="0.32"/>
+    <ellipse cx="45" cy="120.5" rx="2.2" ry="0.75" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="45" cy="120.3" rx="1.6500000000000001" ry="0.44999999999999996" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <circle cx="45" cy="126" r="3.7" fill="url(#pearlMoti)"/>
+    <ellipse cx="43.89" cy="124.89" rx="1.1840000000000002" ry="0.8140000000000001" transform="rotate(-30 43.89 124.89)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="44.334" cy="125.408" r="0.37000000000000005" fill="#ffffff" opacity="0.6"/>
+    <path d="M 46.11,128.96 A 3.7 3.7 0 0 0 47.96,127.11" fill="none" stroke="#fff8eb" stroke-width="0.555" opacity="0.32"/>
+    <ellipse cx="45" cy="131.0" rx="2.4" ry="0.75" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="45" cy="130.8" rx="1.7999999999999998" ry="0.44999999999999996" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <circle cx="45" cy="137" r="4.2" fill="url(#pearlMoti)"/>
+    <ellipse cx="43.74" cy="135.74" rx="1.344" ry="0.924" transform="rotate(-30 43.74 135.74)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="44.244" cy="136.328" r="0.42000000000000004" fill="#ffffff" opacity="0.6"/>
+    <path d="M 46.26,140.36 A 4.2 4.2 0 0 0 48.36,138.26" fill="none" stroke="#fff8eb" stroke-width="0.63" opacity="0.32"/>
+    <line x1="45" y1="142" x2="45" y2="147" stroke="url(#goldH)" stroke-width="0.6"/>
+    <path d="M 40.38,148.2 Q 45,144.2 49.62,148.2 L 48.36,151.2 Q 45,149.0 41.64,151.2 Z" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <path d="M 45,147 C 42.375,152.7 38.91,156.88 38.91,160.68 A 6.09 5.32 0 0 0 51.09,160.68 C 51.09,156.88 47.625,152.7 45,147 Z" fill="url(#dropMoti)"/>
+    <path d="M 43.95,151.56 Q 40.38,159.16 41.01,160.68 Q 42.9,159.73000000000002 44.475,152.7 Z" fill="#ffffff" opacity="0.82"/>
+    <path d="M 47.1,164.48000000000002 A 6.09 5.32 0 0 0 50.565000000000005,160.68" fill="none" stroke="#fff8eb" stroke-width="0.84" opacity="0.35"/>
+    <circle cx="45" cy="167.4" r="1.5" fill="url(#goldSphere)"/>
+    <circle cx="44.58" cy="166.98000000000002" r="0.375" fill="#ffffff" opacity="0.75"/>
+    <circle cx="45" cy="169.6" r="0.9" fill="url(#goldSphere)"/>
+    <!-- ── Center Grand Hero Pearl Cascade ── -->
+    <line x1="32" y1="105" x2="32" y2="113" stroke="url(#goldH)" stroke-width="0.7"/>
+    <circle cx="32" cy="117.5" r="3.6" fill="url(#pearlMoti)"/>
+    <ellipse cx="30.92" cy="116.42" rx="1.1520000000000001" ry="0.792" transform="rotate(-30 30.92 116.42)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="31.352" cy="116.924" r="0.36000000000000004" fill="#ffffff" opacity="0.6"/>
+    <path d="M 33.08,120.38 A 3.6 3.6 0 0 0 34.88,118.58" fill="none" stroke="#fff8eb" stroke-width="0.54" opacity="0.32"/>
+    <ellipse cx="32" cy="122.2" rx="2.5" ry="0.8" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="32" cy="122.0" rx="1.875" ry="0.48" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <circle cx="32" cy="128.5" r="4.2" fill="url(#pearlMoti)"/>
+    <ellipse cx="30.74" cy="127.24" rx="1.344" ry="0.924" transform="rotate(-30 30.74 127.24)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="31.244" cy="127.82799999999999" r="0.42000000000000004" fill="#ffffff" opacity="0.6"/>
+    <path d="M 33.26,131.86 A 4.2 4.2 0 0 0 35.36,129.76" fill="none" stroke="#fff8eb" stroke-width="0.63" opacity="0.32"/>
+    <ellipse cx="32" cy="134.0" rx="2.9" ry="0.8" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="32" cy="133.8" rx="2.175" ry="0.48" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <circle cx="32" cy="141.5" r="4.8" fill="url(#pearlMoti)"/>
+    <ellipse cx="30.56" cy="140.06" rx="1.536" ry="1.056" transform="rotate(-30 30.56 140.06)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="31.136" cy="140.732" r="0.48" fill="#ffffff" opacity="0.6"/>
+    <path d="M 33.44,145.34 A 4.8 4.8 0 0 0 35.84,142.94" fill="none" stroke="#fff8eb" stroke-width="0.72" opacity="0.32"/>
+    <ellipse cx="32" cy="147.8" rx="3.3" ry="0.85" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="32" cy="147.60000000000002" rx="2.4749999999999996" ry="0.51" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <circle cx="32" cy="156.5" r="5.4" fill="url(#pearlMoti)"/>
+    <ellipse cx="30.38" cy="154.88" rx="1.7280000000000002" ry="1.1880000000000002" transform="rotate(-30 30.38 154.88)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="31.028" cy="155.636" r="0.54" fill="#ffffff" opacity="0.6"/>
+    <path d="M 33.62,160.82 A 5.4 5.4 0 0 0 36.32,158.12" fill="none" stroke="#fff8eb" stroke-width="0.81" opacity="0.32"/>
+    <ellipse cx="32" cy="163.5" rx="3.8" ry="0.9" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="32" cy="163.3" rx="2.8499999999999996" ry="0.54" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <circle cx="32" cy="173.0" r="6.0" fill="url(#pearlMoti)"/>
+    <ellipse cx="30.2" cy="171.2" rx="1.92" ry="1.32" transform="rotate(-30 30.2 171.2)" fill="#ffffff" opacity="0.88"/>
+    <circle cx="30.919999999999998" cy="172.04" r="0.6000000000000001" fill="#ffffff" opacity="0.6"/>
+    <path d="M 33.8,177.8 A 6.0 6.0 0 0 0 36.8,174.8" fill="none" stroke="#fff8eb" stroke-width="0.8999999999999999" opacity="0.32"/>
+    <ellipse cx="32" cy="180.5" rx="4.3" ry="0.95" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <ellipse cx="32" cy="180.3" rx="3.2249999999999996" ry="0.57" fill="none" stroke="#fff5cc" stroke-width="0.3" opacity="0.7"/>
+    <ellipse cx="32" cy="184" rx="5.2" ry="2.0" fill="url(#goldH)" stroke="#704b08" stroke-width="0.45"/>
+    <circle cx="32" cy="184" r="1.3" fill="url(#rubyGem)"/>
+    <line x1="32" y1="186.5" x2="32" y2="192" stroke="url(#goldH)" stroke-width="0.7"/>
+    <path d="M 25.62,193.2 Q 32,189.2 38.38,193.2 L 36.64,196.2 Q 32,194.0 27.36,196.2 Z" fill="url(#goldH)" stroke="#704b08" stroke-width="0.35"/>
+    <path d="M 32,192 C 28.375,200.4 23.59,206.56 23.59,212.16 A 8.41 7.840000000000001 0 0 0 40.41,212.16 C 40.41,206.56 35.625,200.4 32,192 Z" fill="url(#dropMoti)"/>
+    <path d="M 30.55,198.72 Q 25.62,209.92 26.490000000000002,212.16 Q 29.1,210.76 31.275,200.4 Z" fill="#ffffff" opacity="0.82"/>
+    <path d="M 34.9,217.76 A 8.41 7.840000000000001 0 0 0 39.684999999999995,212.16" fill="none" stroke="#fff8eb" stroke-width="1.16" opacity="0.35"/>
+    <circle cx="32" cy="221.4" r="1.5" fill="url(#goldSphere)"/>
+    <circle cx="31.58" cy="220.98000000000002" r="0.375" fill="#ffffff" opacity="0.75"/>
+    <circle cx="32" cy="223.6" r="0.9" fill="url(#goldSphere)"/>
+  </g>
+</svg>
