@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="40" viewBox="0 0 22 40">
+  <defs>
+    <linearGradient id="gVv" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7a5416"/>
+      <stop offset="25%" stop-color="#c9a030"/>
+      <stop offset="50%" stop-color="#faebaa"/>
+      <stop offset="75%" stop-color="#c9a030"/>
+      <stop offset="100%" stop-color="#7a5416"/>
+    </linearGradient>
+    <radialGradient id="gRvv" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#f03e56"/>
+      <stop offset="60%" stop-color="#b01326"/>
+      <stop offset="100%" stop-color="#4a040d"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Left dual hairline & moti pearls -->
+  <line x1="1" y1="0" x2="1" y2="40" stroke="url(#gVv)" stroke-width="1.0"/>
+  <line x1="3.2" y1="0" x2="3.2" y2="40" stroke="url(#gVv)" stroke-width="0.6" opacity="0.75"/>
+  <circle cx="2.1" cy="5" r="0.8" fill="url(#gVv)"/>
+  <circle cx="2.1" cy="15" r="0.8" fill="url(#gVv)"/>
+  <circle cx="2.1" cy="25" r="0.8" fill="url(#gVv)"/>
+  <circle cx="2.1" cy="35" r="0.8" fill="url(#gVv)"/>
+
+  <!-- Right dual hairline & moti pearls -->
+  <line x1="21" y1="0" x2="21" y2="40" stroke="url(#gVv)" stroke-width="1.0"/>
+  <line x1="18.8" y1="0" x2="18.8" y2="40" stroke="url(#gVv)" stroke-width="0.6" opacity="0.75"/>
+  <circle cx="19.9" cy="5" r="0.8" fill="url(#gVv)"/>
+  <circle cx="19.9" cy="15" r="0.8" fill="url(#gVv)"/>
+  <circle cx="19.9" cy="25" r="0.8" fill="url(#gVv)"/>
+  <circle cx="19.9" cy="35" r="0.8" fill="url(#gVv)"/>
+
+  <!-- Sinuous Floral Vine Wave -->
+  <path d="M 11,0 Q 6.5,10 11,20 Q 15.5,30 11,40" fill="none" stroke="url(#gVv)" stroke-width="1.1" opacity="0.9"/>
+
+  <!-- Blooming Pichwai Lotus Flower at center (y=20) -->
+  <!-- Center Petal -->
+  <path d="M 5.5,20 Q 8.5,22 11,20 Q 8.5,18 5.5,20 Z" fill="#faebaa" fill-opacity="0.35" stroke="url(#gVv)" stroke-width="0.8"/>
+  <!-- Flanking Petals -->
+  <path d="M 7,17 Q 10,19 11,20 Q 10.5,16.5 7,17 Z" fill="#faebaa" fill-opacity="0.25" stroke="url(#gVv)" stroke-width="0.7"/>
+  <path d="M 7,23 Q 10,21 11,20 Q 10.5,23.5 7,23 Z" fill="#faebaa" fill-opacity="0.25" stroke="url(#gVv)" stroke-width="0.7"/>
+  <!-- Central Ruby Bindi -->
+  <circle cx="11" cy="20" r="1.3" fill="url(#gRvv)" stroke="url(#gVv)" stroke-width="0.4"/>
+
+  <!-- Lotus Leaves along the wave -->
+  <!-- Leaf left crest (y=10) -->
+  <path d="M 8,8.5 Q 4.5,10 5,12 Q 8.5,11.5 8,8.5 Z" fill="#faebaa" fill-opacity="0.3" stroke="url(#gVv)" stroke-width="0.7"/>
+  <circle cx="4.8" cy="10.8" r="0.7" fill="#b88924"/>
+
+  <!-- Leaf right trough (y=30) -->
+  <path d="M 14,28.5 Q 17.5,30 17,32 Q 13.5,31.5 14,28.5 Z" fill="#faebaa" fill-opacity="0.3" stroke="url(#gVv)" stroke-width="0.7"/>
+  <circle cx="17.2" cy="30.8" r="0.7" fill="#b88924"/>
+
+  <!-- Auspicious 4-Petaled Gold Floret at inflection (y=0/40) -->
+  <polygon points="9.5,0 11,1.5 12.5,0 11,-1.5" fill="#c9a030"/>
+  <polygon points="9.5,40 11,41.5 12.5,40 11,38.5" fill="#c9a030"/>
+</svg>

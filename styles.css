@@ -180,14 +180,16 @@ body { position: fixed; inset: 0; }
   display: none;
 }
 
-/* ── Authentic Indian Traditional Hashiya (Royal 24K Gold Foil Pichwai Border) ─
-   Printed directly into the Wasli paper grain using multiply blending:
-   - Zero drop-shadows or floating sticker badges (100% natural, embedded feel)
-   - Continuous 45° mitered 24K gold Pichwai lotus creeper vine (bel)
-   - Pure, uncompromised breathing room for typography, mandalas, and hands
+/* ── Authentic Royal Indian Heritage Border Frame (Rambagh Palace, Jaipur) ─
+   Designed with authentic Rajputana architectural Jharokha arches,
+   Jaipur marble jaali geometries, Pichwai lotus vines, and royal ruby cabochons.
+   100% pure vector linework printed directly onto the Wasli paper.
 ────────────────────────────────────────────────────────────────────────────── */
 :root {
-  --border-band-thickness: clamp(18px, 4.2vw, 28px);
+  --heritage-edge-thickness: clamp(16px, 4.0vw, 22px);
+  --heritage-corner-size: clamp(52px, 12vw, 76px);
+  --heritage-mehraab-w: clamp(96px, 22vw, 140px);
+  --heritage-mehraab-h: clamp(20px, 4.8vw, 30px);
 }
 
 .mandala-border-frame {
@@ -196,11 +198,26 @@ body { position: fixed; inset: 0; }
   z-index: 12;
   pointer-events: none;
   box-sizing: border-box;
-  mix-blend-mode: multiply;
-  opacity: 0.92;
 }
 
-/* 4 Sinuous Pichwai Lotus Vine Edges with 45° Mitered Seamless Corners */
+/* Continuous 24K gold hairlines around the card */
+.mandala-border-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1.2px solid rgba(196, 150, 40, 0.85);
+  pointer-events: none;
+}
+
+.mandala-border-frame::after {
+  content: '';
+  position: absolute;
+  inset: var(--heritage-edge-thickness);
+  border: 0.8px solid rgba(196, 150, 40, 0.55);
+  pointer-events: none;
+}
+
+/* 4 Pichwai Lotus Creeper Edges with Moti Pearls */
 .frame-edge {
   position: absolute;
   pointer-events: none;
@@ -208,44 +225,104 @@ body { position: fixed; inset: 0; }
 
 .frame-top {
   top: 0;
-  left: 0;
-  right: 0;
-  height: var(--border-band-thickness);
-  background: url('assets/invitation/royal-band-h.webp') repeat-x center top;
+  left: var(--heritage-corner-size);
+  right: var(--heritage-corner-size);
+  height: var(--heritage-edge-thickness);
+  background: url('assets/invitation/heritage-vine-h.svg') repeat-x center center;
   background-size: auto 100%;
-  clip-path: polygon(0 0, 100% 0, calc(100% - var(--border-band-thickness)) 100%, var(--border-band-thickness) 100%);
 }
 
 .frame-bottom {
   bottom: 0;
-  left: 0;
-  right: 0;
-  height: var(--border-band-thickness);
-  background: url('assets/invitation/royal-band-h.webp') repeat-x center bottom;
+  left: var(--heritage-corner-size);
+  right: var(--heritage-corner-size);
+  height: var(--heritage-edge-thickness);
+  background: url('assets/invitation/heritage-vine-h.svg') repeat-x center center;
   background-size: auto 100%;
   transform: scaleY(-1);
-  clip-path: polygon(var(--border-band-thickness) 0, calc(100% - var(--border-band-thickness)) 0, 100% 100%, 0 100%);
 }
 
 .frame-left {
   left: 0;
-  top: 0;
-  bottom: 0;
-  width: var(--border-band-thickness);
-  background: url('assets/invitation/royal-band-v.webp') repeat-y left center;
+  top: var(--heritage-corner-size);
+  bottom: var(--heritage-corner-size);
+  width: var(--heritage-edge-thickness);
+  background: url('assets/invitation/heritage-vine-v.svg') repeat-y center center;
   background-size: 100% auto;
-  transform: scaleX(-1);
-  clip-path: polygon(0 0, 100% var(--border-band-thickness), 100% calc(100% - var(--border-band-thickness)), 0 100%);
 }
 
 .frame-right {
   right: 0;
-  top: 0;
-  bottom: 0;
-  width: var(--border-band-thickness);
-  background: url('assets/invitation/royal-band-v.webp') repeat-y right center;
+  top: var(--heritage-corner-size);
+  bottom: var(--heritage-corner-size);
+  width: var(--heritage-edge-thickness);
+  background: url('assets/invitation/heritage-vine-v.svg') repeat-y center center;
   background-size: 100% auto;
-  clip-path: polygon(0 var(--border-band-thickness), 100% 0, 100% 100%, 0 calc(100% - var(--border-band-thickness)));
+  transform: scaleX(-1);
+}
+
+/* 4 Corner Rajput Jharokha Spandrels: Strict 1:1 Aspect Ratio, Never Distorted */
+.mandala-corner {
+  position: absolute;
+  width: var(--heritage-corner-size);
+  height: var(--heritage-corner-size);
+  z-index: 14;
+  pointer-events: none;
+}
+
+.mandala-corner img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.corner-tl {
+  top: 0;
+  left: 0;
+}
+
+.corner-tr {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.corner-bl {
+  bottom: 0;
+  left: 0;
+  transform: scaleY(-1);
+}
+
+.corner-br {
+  bottom: 0;
+  right: 0;
+  transform: scale(-1, -1);
+}
+
+/* Top & Bottom Rambagh Mehraab Arches */
+.frame-mehraab {
+  position: absolute;
+  left: 50%;
+  width: var(--heritage-mehraab-w);
+  height: var(--heritage-mehraab-h);
+  z-index: 15;
+  pointer-events: none;
+}
+
+.frame-mehraab img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mehraab-top {
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.mehraab-bottom {
+  bottom: 0;
+  transform: translateX(-50%) scaleY(-1);
 }
 
 
