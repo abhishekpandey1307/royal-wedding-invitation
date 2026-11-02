@@ -180,45 +180,27 @@ body { position: fixed; inset: 0; }
   display: none;
 }
 
-/* ── Authentic Indian Traditional Mandala & Lotus Vine Border Frame ────────
-   End-to-end vector framing inspired by Kishangarh, Rajputana, and Pichwai manuscripts:
-   - Outer continuous 24K gold hairline rule
-   - Inner 24K gold hairline rule
-   - Four repeating sinuous lotus vine channels (repeat-x / repeat-y)
-   - Four 1:1 square quarter-mandala corner cartouches with imperial ruby center
-   - Symmetrical Rajput Mehraab (arch) cartouches at top and bottom center
+/* ── Authentic Indian Traditional Hashiya (Royal 24K Gold Foil & Gemstone Border Frame) ────────
+   Inspired by heritage Sabyasachi, Rajputana (Mewar), and Pichwai royal wedding folios:
+   - Genuine 3D embossed 24K gold leaf texture with tactile metallic relief
+   - Continuous Pichwai lotus creeper vine (bel) with elephants, peacocks, and micro-pearl borders
+   - Four magnificent corner medallions studded with faceted rubies, emeralds, and natural pearls
+   - Sized responsively to preserve generous breathing space for all typography and divine hands
 ────────────────────────────────────────────────────────────────────────────── */
 :root {
-  --border-corner-size: clamp(56px, 12vw, 76px);
-  --border-offset-rosette: calc(var(--border-corner-size) * 16 / 72);
+  --border-band-thickness: clamp(22px, 5.2vw, 34px);
+  --border-medallion-size: clamp(48px, 11vw, 68px);
 }
 
 .mandala-border-frame {
   position: absolute;
-  inset: clamp(8px, 1.8vw, 18px);
+  inset: clamp(6px, 1.4vw, 14px);
   z-index: 12;
   pointer-events: none;
   box-sizing: border-box;
 }
 
-/* Outer and inner gold hairlines rendered continuously */
-.mandala-border-frame::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1.5px solid rgba(196, 150, 40, 0.88);
-  pointer-events: none;
-}
-
-.mandala-border-frame::after {
-  content: '';
-  position: absolute;
-  inset: 15px;
-  border: 0.9px solid rgba(196, 150, 40, 0.6);
-  pointer-events: none;
-}
-
-/* 4 Vine Edges inside the 16px border channel */
+/* 4 Sinuous Pichwai Lotus Vine Edges with 24K Gold Foil Relief */
 .frame-edge {
   position: absolute;
   pointer-events: none;
@@ -226,98 +208,86 @@ body { position: fixed; inset: 0; }
 
 .frame-top {
   top: 0;
-  left: var(--border-offset-rosette);
-  right: var(--border-offset-rosette);
-  height: 16px;
-  background: url('assets/invitation/mandala-vine-h.svg') repeat-x center center;
+  left: 0;
+  right: 0;
+  height: var(--border-band-thickness);
+  background: url('assets/invitation/royal-band-h.webp') repeat-x center top;
+  background-size: auto 100%;
+  box-shadow: 0 1px 4px rgba(92, 61, 0, 0.15);
 }
 
 .frame-bottom {
   bottom: 0;
-  left: var(--border-offset-rosette);
-  right: var(--border-offset-rosette);
-  height: 16px;
-  background: url('assets/invitation/mandala-vine-h.svg') repeat-x center center;
+  left: 0;
+  right: 0;
+  height: var(--border-band-thickness);
+  background: url('assets/invitation/royal-band-h.webp') repeat-x center bottom;
+  background-size: auto 100%;
+  transform: scaleY(-1);
+  box-shadow: 0 -1px 4px rgba(92, 61, 0, 0.15);
 }
 
 .frame-left {
   left: 0;
-  top: var(--border-offset-rosette);
-  bottom: var(--border-offset-rosette);
-  width: 16px;
-  background: url('assets/invitation/mandala-vine-v.svg') repeat-y center center;
+  top: 0;
+  bottom: 0;
+  width: var(--border-band-thickness);
+  background: url('assets/invitation/royal-band-v.webp') repeat-y left center;
+  background-size: 100% auto;
+  box-shadow: 1px 0 4px rgba(92, 61, 0, 0.15);
 }
 
 .frame-right {
   right: 0;
-  top: var(--border-offset-rosette);
-  bottom: var(--border-offset-rosette);
-  width: 16px;
-  background: url('assets/invitation/mandala-vine-v.svg') repeat-y center center;
+  top: 0;
+  bottom: 0;
+  width: var(--border-band-thickness);
+  background: url('assets/invitation/royal-band-v.webp') repeat-y right center;
+  background-size: 100% auto;
+  transform: scaleX(-1);
+  box-shadow: -1px 0 4px rgba(92, 61, 0, 0.15);
 }
 
-/* 4 Corner Quarter-Mandalas: Always 1:1 Aspect Ratio, Never Distorted */
+/* 4 Corner Gemstone Medallions: Always 1:1 Aspect Ratio, Never Distorted */
 .mandala-corner {
   position: absolute;
-  width: var(--border-corner-size);
-  height: var(--border-corner-size);
-  z-index: 4;
+  width: var(--border-medallion-size);
+  height: var(--border-medallion-size);
+  z-index: 14;
   pointer-events: none;
+  filter: drop-shadow(0 2px 5px rgba(92, 61, 0, 0.3));
 }
 
 .mandala-corner img {
   width: 100%;
   height: 100%;
   display: block;
+  border-radius: 50%;
 }
 
 .corner-tl {
-  top: 0;
-  left: 0;
+  top: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
+  left: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
 }
 
 .corner-tr {
-  top: 0;
-  right: 0;
-  transform: scaleX(-1);
+  top: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
+  right: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
 }
 
 .corner-bl {
-  bottom: 0;
-  left: 0;
-  transform: scaleY(-1);
+  bottom: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
+  left: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
 }
 
 .corner-br {
-  bottom: 0;
-  right: 0;
-  transform: scale(-1, -1);
+  bottom: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
+  right: calc(var(--border-band-thickness) * 0.5 - var(--border-medallion-size) * 0.5);
 }
 
-/* Center Rajput Mehraab (Arch Cartouches) */
+/* Center Mehraab arch hidden or subtle */
 .frame-mehraab {
-  position: absolute;
-  left: 50%;
-  width: clamp(86px, 18vw, 126px);
-  height: clamp(18px, 4vw, 26px);
-  z-index: 5;
-  pointer-events: none;
-}
-
-.frame-mehraab img {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.mehraab-top {
-  top: 0;
-  transform: translateX(-50%);
-}
-
-.mehraab-bottom {
-  bottom: 0;
-  transform: translateX(-50%) scaleY(-1);
+  display: none;
 }
 
 
