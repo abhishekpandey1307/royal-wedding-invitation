@@ -180,125 +180,82 @@ body { position: fixed; inset: 0; }
   display: none;
 }
 
-/* ── Royal Indian Fine Gold Line Frame (Exact User Reference Design) ─────────
-   Delicate 24K gold hairlines, Rajput architectural corner brackets,
-   hanging lotus tassels / toran chimes, and royal crest finials.
+/* ── Clean Royal Indian Reference Border ─────────────────────────────────────
+   Matches the user-supplied reference image exactly:
+   • Outer 1.5px 24K gold hairline rectangle  (::before)
+   • Inner 1px  24K gold hairline rectangle   (::after, inset 14px)
+   • 4 corner lotus-bracket ornaments         (.ref-corner)
+   • 2 hanging lotus-toran latkans            (.ref-latkan — top only)
 ────────────────────────────────────────────────────────────────────────────── */
 :root {
-  --frame-inset: clamp(8px, 2.0vw, 16px);
-  --frame-gap: clamp(5px, 1.0vw, 8px);
-  --corner-top-w: clamp(100px, 26vw, 150px);
-  --corner-bottom-size: clamp(65px, 16vw, 95px);
-  --crest-w: clamp(140px, 34vw, 240px);
+  --border-inset:       clamp(5px, 1.2vw, 10px);
+  --border-inner:       14px;
+  --ref-corner-size:    clamp(80px, 15vw, 115px);
+  --ref-latkan-width:   clamp(55px, 9.5vw, 82px);
 }
 
 .mandala-border-frame {
   position: absolute;
-  inset: var(--frame-inset);
+  inset: var(--border-inset);
   z-index: 12;
   pointer-events: none;
   box-sizing: border-box;
 }
 
-/* Outer Continuous Hairline Frame */
-.border-line-outer {
+/* Outer 24K gold hairline */
+.mandala-border-frame::before {
+  content: '';
   position: absolute;
   inset: 0;
-  border: 1.2px solid rgba(175, 125, 48, 0.85);
+  border: 1.5px solid rgba(185, 145, 45, 0.92);
   pointer-events: none;
+  box-sizing: border-box;
 }
 
-/* Inner Continuous Hairline Frame */
-.border-line-inner {
+/* Inner parallel 24K gold hairline */
+.mandala-border-frame::after {
+  content: '';
   position: absolute;
-  inset: var(--frame-gap);
-  border: 0.9px solid rgba(175, 125, 48, 0.65);
+  inset: var(--border-inner);
+  border: 1px solid rgba(185, 145, 45, 0.72);
   pointer-events: none;
+  box-sizing: border-box;
 }
 
-/* 4 Corner Lotus Brackets */
-.lotus-corner {
+/* ── Corner lotus-bracket ornaments ── */
+.ref-corner {
   position: absolute;
+  width: var(--ref-corner-size);
+  height: var(--ref-corner-size);
   z-index: 14;
   pointer-events: none;
 }
-
-.lotus-corner img,
-.lotus-corner picture {
+.ref-corner img {
   width: 100%;
   height: 100%;
   display: block;
 }
+.corner-tl { top: 0; left: 0; }
+.corner-tr { top: 0; right: 0;  transform: scaleX(-1); }
+.corner-bl { bottom: 0; left: 0;  transform: scaleY(-1); }
+.corner-br { bottom: 0; right: 0; transform: scale(-1,-1); }
 
-/* Top Corners with Hanging Lotus Tassels */
-.corner-top-left {
-  top: 0;
-  left: 0;
-  width: var(--corner-top-w);
-  aspect-ratio: 352 / 428;
-}
-
-.corner-top-right {
-  top: 0;
-  right: 0;
-  width: var(--corner-top-w);
-  aspect-ratio: 352 / 428;
-  transform: scaleX(-1);
-}
-
-/* Bottom Corners: Clean Architectural Brackets */
-.corner-bottom-left {
-  bottom: 0;
-  left: 0;
-  width: var(--corner-bottom-size);
-  height: var(--corner-bottom-size);
-  transform: scaleY(-1);
-}
-
-.corner-bottom-right {
-  bottom: 0;
-  right: 0;
-  width: var(--corner-bottom-size);
-  height: var(--corner-bottom-size);
-  transform: scale(-1, -1);
-}
-
-/* Symmetrical Royal Crest Finials on Top & Bottom */
-.lotus-crest {
+/* ── Hanging lotus toran latkans (top only) ── */
+.ref-latkan {
   position: absolute;
-  left: 50%;
-  width: var(--crest-w);
-  aspect-ratio: 480 / 38;
-  z-index: 15;
+  top: 0;
+  width: var(--ref-latkan-width);
+  z-index: 13;
   pointer-events: none;
 }
-
-.lotus-crest img,
-.lotus-crest picture {
+.ref-latkan img {
   width: 100%;
-  height: 100%;
   display: block;
 }
+.latkan-tl { left: var(--ref-corner-size); }
+.latkan-tr { right: var(--ref-corner-size); transform: scaleX(-1); }
 
-.crest-top {
-  top: 0;
-  transform: translateX(-50%);
-}
 
-.crest-bottom {
-  bottom: 0;
-  transform: translateX(-50%) scaleY(-1);
-}
-
-@media (min-width: 769px) {
-  :root {
-    --frame-inset: clamp(14px, 1.8vw, 24px);
-    --frame-gap: clamp(7px, 0.8vw, 10px);
-    --corner-top-w: clamp(140px, 16vw, 200px);
-    --corner-bottom-size: clamp(85px, 9vw, 120px);
-    --crest-w: clamp(220px, 22vw, 340px);
-  }
-}
 
 /* ── Atmospheric Warm Vignette (No pitch black) ──────────────────────────── */
 .vignette {
