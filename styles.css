@@ -180,199 +180,123 @@ body { position: fixed; inset: 0; }
   display: none;
 }
 
-/* ── Authentic Royal Indian Heritage Border Frame with Real Moti/Pearl Latkans ─
-   Designed with authentic Rajputana architectural Jharokha arches,
-   Jaipur marble jaali geometries, Pichwai lotus vines, and real-like 3D
-   luminous moti/pearl & 24K gold filigree hanging latkans.
+/* ── Royal Indian Fine Gold Line Frame (Exact User Reference Design) ─────────
+   Delicate 24K gold hairlines, Rajput architectural corner brackets,
+   hanging lotus tassels / toran chimes, and royal crest finials.
 ────────────────────────────────────────────────────────────────────────────── */
 :root {
-  --heritage-edge-thickness: clamp(16px, 4.0vw, 22px);
-  --heritage-corner-size: clamp(52px, 12vw, 76px);
-  --heritage-mehraab-w: clamp(96px, 22vw, 140px);
-  --heritage-mehraab-h: clamp(20px, 4.8vw, 30px);
-  --latkan-w: clamp(30px, 7.2vw, 48px);
-  --latkan-h: clamp(120px, 26vh, 195px);
+  --frame-inset: clamp(8px, 2.0vw, 16px);
+  --frame-gap: clamp(5px, 1.0vw, 8px);
+  --corner-top-w: clamp(100px, 26vw, 150px);
+  --corner-bottom-size: clamp(65px, 16vw, 95px);
+  --crest-w: clamp(140px, 34vw, 240px);
 }
 
 .mandala-border-frame {
   position: absolute;
-  inset: clamp(6px, 1.4vw, 14px);
+  inset: var(--frame-inset);
   z-index: 12;
   pointer-events: none;
   box-sizing: border-box;
 }
 
-/* Continuous 24K gold hairlines around the card */
-.mandala-border-frame::before {
-  content: '';
+/* Outer Continuous Hairline Frame */
+.border-line-outer {
   position: absolute;
   inset: 0;
-  border: 1.2px solid rgba(196, 150, 40, 0.85);
+  border: 1.2px solid rgba(175, 125, 48, 0.85);
   pointer-events: none;
 }
 
-.mandala-border-frame::after {
-  content: '';
+/* Inner Continuous Hairline Frame */
+.border-line-inner {
   position: absolute;
-  inset: var(--heritage-edge-thickness);
-  border: 0.8px solid rgba(196, 150, 40, 0.55);
+  inset: var(--frame-gap);
+  border: 0.9px solid rgba(175, 125, 48, 0.65);
   pointer-events: none;
 }
 
-/* 4 Pichwai Lotus Creeper Edges with Moti Pearls */
-.frame-edge {
+/* 4 Corner Lotus Brackets */
+.lotus-corner {
   position: absolute;
-  pointer-events: none;
-}
-
-.frame-top {
-  top: 0;
-  left: var(--heritage-corner-size);
-  right: var(--heritage-corner-size);
-  height: var(--heritage-edge-thickness);
-  background: url('assets/invitation/heritage-vine-h.svg') repeat-x center center;
-  background-size: auto 100%;
-}
-
-.frame-bottom {
-  bottom: 0;
-  left: var(--heritage-corner-size);
-  right: var(--heritage-corner-size);
-  height: var(--heritage-edge-thickness);
-  background: url('assets/invitation/heritage-vine-h.svg') repeat-x center center;
-  background-size: auto 100%;
-  transform: scaleY(-1);
-}
-
-.frame-left {
-  left: 0;
-  top: var(--heritage-corner-size);
-  bottom: var(--heritage-corner-size);
-  width: var(--heritage-edge-thickness);
-  background: url('assets/invitation/heritage-vine-v.svg') repeat-y center center;
-  background-size: 100% auto;
-}
-
-.frame-right {
-  right: 0;
-  top: var(--heritage-corner-size);
-  bottom: var(--heritage-corner-size);
-  width: var(--heritage-edge-thickness);
-  background: url('assets/invitation/heritage-vine-v.svg') repeat-y center center;
-  background-size: 100% auto;
-  transform: scaleX(-1);
-}
-
-/* 4 Corner Rajput Jharokha Spandrels: Strict 1:1 Aspect Ratio, Never Distorted */
-.mandala-corner {
-  position: absolute;
-  width: var(--heritage-corner-size);
-  height: var(--heritage-corner-size);
   z-index: 14;
   pointer-events: none;
 }
 
-.mandala-corner img {
+.lotus-corner img,
+.lotus-corner picture {
   width: 100%;
   height: 100%;
   display: block;
 }
 
-.corner-tl {
+/* Top Corners with Hanging Lotus Tassels */
+.corner-top-left {
   top: 0;
   left: 0;
+  width: var(--corner-top-w);
+  aspect-ratio: 352 / 428;
 }
 
-.corner-tr {
+.corner-top-right {
   top: 0;
   right: 0;
+  width: var(--corner-top-w);
+  aspect-ratio: 352 / 428;
   transform: scaleX(-1);
 }
 
-.corner-bl {
+/* Bottom Corners: Clean Architectural Brackets */
+.corner-bottom-left {
   bottom: 0;
   left: 0;
+  width: var(--corner-bottom-size);
+  height: var(--corner-bottom-size);
   transform: scaleY(-1);
 }
 
-.corner-br {
+.corner-bottom-right {
   bottom: 0;
   right: 0;
+  width: var(--corner-bottom-size);
+  height: var(--corner-bottom-size);
   transform: scale(-1, -1);
 }
 
-/* Top & Bottom Rambagh Mehraab Arches */
-.frame-mehraab {
+/* Symmetrical Royal Crest Finials on Top & Bottom */
+.lotus-crest {
   position: absolute;
   left: 50%;
-  width: var(--heritage-mehraab-w);
-  height: var(--heritage-mehraab-h);
+  width: var(--crest-w);
+  aspect-ratio: 480 / 38;
   z-index: 15;
   pointer-events: none;
 }
 
-.frame-mehraab img {
+.lotus-crest img,
+.lotus-crest picture {
   width: 100%;
   height: 100%;
   display: block;
 }
 
-.mehraab-top {
+.crest-top {
   top: 0;
   transform: translateX(-50%);
 }
 
-.mehraab-bottom {
+.crest-bottom {
   bottom: 0;
   transform: translateX(-50%) scaleY(-1);
 }
 
-/* Real-Like Moti/Pearl Golden Latkans Hanging Gracefully on the Borders */
-.border-latkan {
-  position: absolute;
-  width: var(--latkan-w);
-  height: var(--latkan-h);
-  z-index: 16;
-  pointer-events: none;
-  transform-origin: top center;
-}
-
-.border-latkan img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: top center;
-  display: block;
-}
-
-.latkan-tl {
-  top: calc(var(--heritage-edge-thickness) + 4px);
-  left: clamp(14px, 3.4vw, 28px);
-  animation: latkan-sway-left 6.5s ease-in-out infinite alternate;
-}
-
-.latkan-tr {
-  top: calc(var(--heritage-edge-thickness) + 4px);
-  right: clamp(14px, 3.4vw, 28px);
-  animation: latkan-sway-right 7.0s ease-in-out infinite alternate;
-}
-
-@keyframes latkan-sway-left {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(1.4deg); }
-  100% { transform: rotate(-0.9deg); }
-}
-
-@keyframes latkan-sway-right {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(-1.4deg); }
-  100% { transform: rotate(0.9deg); }
-}
-
 @media (min-width: 769px) {
   :root {
-    --latkan-w: clamp(38px, 3.2vw, 54px);
-    --latkan-h: clamp(150px, 25vh, 220px);
+    --frame-inset: clamp(14px, 1.8vw, 24px);
+    --frame-gap: clamp(7px, 0.8vw, 10px);
+    --corner-top-w: clamp(140px, 16vw, 200px);
+    --corner-bottom-size: clamp(85px, 9vw, 120px);
+    --crest-w: clamp(220px, 22vw, 340px);
   }
 }
 
