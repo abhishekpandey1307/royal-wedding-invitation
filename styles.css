@@ -74,14 +74,19 @@ body { position: fixed; inset: 0; }
 /* ── Scroll Hint ─────────────────────────────────────────────────────────── */
 .scroll-hint {
   position: fixed;
-  bottom: clamp(32px, 6vh, 54px);
-  /* Stay above audio button & OS home indicator */
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  bottom: clamp(28px, 5vh, 48px);
+  padding: 8px 22px 9px 22px;
+  background: rgba(253, 248, 238, 0.90);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(164, 113, 51, 0.38);
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(100, 60, 20, 0.08), 0 0 16px rgba(253, 248, 238, 0.85);
   left: 50%; transform: translateX(-50%);
   z-index: 100;
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
   opacity: 0;
-  transition: opacity 0.6s ease, transform 0.3s ease;
+  transition: opacity 0.6s ease, transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   pointer-events: auto;
   cursor: pointer;
   user-select: none;
@@ -89,7 +94,12 @@ body { position: fixed; inset: 0; }
 }
 .scroll-hint.visible { opacity: 1; }
 .scroll-hint.hidden { opacity: 0; pointer-events: none; }
-.scroll-hint:hover { transform: translateX(-50%) translateY(2px); }
+.scroll-hint:hover {
+  transform: translateX(-50%) translateY(2px);
+  background: rgba(253, 248, 238, 0.96);
+  border-color: rgba(164, 113, 51, 0.58);
+  box-shadow: 0 6px 24px rgba(100, 60, 20, 0.12), 0 0 22px rgba(253, 248, 238, 0.95);
+}
 .scroll-hint:active { transform: translateX(-50%) translateY(4px); }
 
 .scroll-hint-text {
@@ -202,7 +212,7 @@ body { position: fixed; inset: 0; }
     --border-inner-gap: 5px;
     --corner-top-w: clamp(102px, 27vw, 130px);
     --corner-bot-w: clamp(52px, 14vw, 70px);
-    --mandala-gap-half: clamp(65px, 19vw, 90px);
+    --mandala-gap-half: clamp(115px, 30vw, 155px);
   }
 }
 
@@ -888,9 +898,10 @@ body { position: fixed; inset: 0; }
   }
   .audio-icon { width: 17px; height: 17px; }
 
-  /* Scroll hint on mobile — sits above audio btn */
+  /* Scroll hint on mobile — luxurious floating capsule above audio btn */
   .scroll-hint {
-    bottom: max(64px, calc(env(safe-area-inset-bottom, 0px) + 64px));
+    bottom: max(60px, calc(env(safe-area-inset-bottom, 0px) + 60px));
+    padding: 7px 18px 8px 18px;
   }
   .scroll-hint-text {
     font-size: clamp(0.66rem, 2.6vw, 0.78rem);
