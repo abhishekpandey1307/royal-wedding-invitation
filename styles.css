@@ -180,82 +180,166 @@ body { position: fixed; inset: 0; }
   display: none;
 }
 
-/* ── Clean Royal Indian Reference Border ─────────────────────────────────────
-   Matches the user-supplied reference image exactly:
-   • Outer 1.5px 24K gold hairline rectangle  (::before)
-   • Inner 1px  24K gold hairline rectangle   (::after, inset 14px)
-   • 4 corner lotus-bracket ornaments         (.ref-corner)
-   • 2 hanging lotus-toran latkans            (.ref-latkan — top only)
+/* ── Authentic Royal Indian Lotus & Mehraab Border Frame ─────────────────────
+   Exact match to user's couture stationery reference:
+   • Outer 1.4px and inner 1.0px 24K gold hairlines
+   • Top corners with 4-string hanging lotus latkans
+   • Bottom corners with 3-lobed architectural mehraab brackets
+   • Top and bottom centered royal fleur-de-lis diamond crests
+   • Left and right midpoint 4-pointed diamond star accents
 ────────────────────────────────────────────────────────────────────────────── */
 :root {
-  --border-inset:       clamp(5px, 1.2vw, 10px);
-  --border-inner:       14px;
-  --ref-corner-size:    clamp(80px, 15vw, 115px);
-  --ref-latkan-width:   clamp(55px, 9.5vw, 82px);
+  --border-inset: clamp(8px, 1.6vw, 16px);
+  --border-inner-gap: clamp(5px, 0.9vw, 8px);
+  --corner-top-w: clamp(120px, 13.5vw, 165px);
+  --corner-bot-w: clamp(65px, 6.8vw, 88px);
+  --crest-w: clamp(140px, 15vw, 190px);
+}
+
+@media (max-width: 600px) {
+  :root {
+    --border-inset: clamp(6px, 1.8vw, 10px);
+    --border-inner-gap: 5px;
+    --corner-top-w: clamp(102px, 27vw, 130px);
+    --corner-bot-w: clamp(52px, 14vw, 70px);
+    --crest-w: clamp(118px, 30vw, 145px);
+  }
 }
 
 .mandala-border-frame {
   position: absolute;
   inset: var(--border-inset);
-  z-index: 12;
+  z-index: 8; /* Below hands at z-9 & z-10 for natural regal layering */
   pointer-events: none;
   box-sizing: border-box;
+  mix-blend-mode: multiply;
+  opacity: 0.96;
 }
 
-/* Outer 24K gold hairline */
+/* Outer crisp gold hairline */
 .mandala-border-frame::before {
   content: '';
   position: absolute;
   inset: 0;
-  border: 1.5px solid rgba(185, 145, 45, 0.92);
+  border: 1.4px solid rgba(164, 113, 51, 0.92);
   pointer-events: none;
   box-sizing: border-box;
 }
 
-/* Inner parallel 24K gold hairline */
+/* Inner parallel gold hairline */
 .mandala-border-frame::after {
   content: '';
   position: absolute;
-  inset: var(--border-inner);
-  border: 1px solid rgba(185, 145, 45, 0.72);
+  inset: var(--border-inner-gap);
+  border: 1.0px solid rgba(164, 113, 51, 0.72);
   pointer-events: none;
   box-sizing: border-box;
 }
 
-/* ── Corner lotus-bracket ornaments ── */
-.ref-corner {
+/* Top Corners with Hanging Lotus Latkans */
+.corner-top-left {
   position: absolute;
-  width: var(--ref-corner-size);
-  height: var(--ref-corner-size);
-  z-index: 14;
+  top: 0;
+  left: 0;
+  width: var(--corner-top-w);
+  z-index: 10;
   pointer-events: none;
 }
-.ref-corner img {
+
+.corner-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--corner-top-w);
+  transform: scaleX(-1);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.corner-top-left img,
+.corner-top-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Bottom Corners with Cusped Mehraab Brackets */
+.corner-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: var(--corner-bot-w);
+  transform: scaleX(-1);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.corner-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: var(--corner-bot-w);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.corner-bottom-left img,
+.corner-bottom-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Top & Bottom Royal Fleur-de-lis Crests */
+.border-crest {
+  position: absolute;
+  left: 50%;
+  width: var(--crest-w);
+  z-index: 11;
+  pointer-events: none;
+}
+
+.border-crest img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.crest-top {
+  top: 0;
+  transform: translate(-50%, -15%);
+}
+
+.crest-bottom {
+  bottom: 0;
+  transform: translate(-50%, 15%) scaleY(-1);
+}
+
+/* Midpoint 4-pointed Diamond Star Accents */
+.border-star {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 44px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.border-star img {
   width: 100%;
   height: 100%;
   display: block;
 }
-.corner-tl { top: 0; left: 0; }
-.corner-tr { top: 0; right: 0;  transform: scaleX(-1); }
-.corner-bl { bottom: 0; left: 0;  transform: scaleY(-1); }
-.corner-br { bottom: 0; right: 0; transform: scale(-1,-1); }
 
-/* ── Hanging lotus toran latkans (top only) ── */
-.ref-latkan {
-  position: absolute;
-  top: 0;
-  width: var(--ref-latkan-width);
-  z-index: 13;
-  pointer-events: none;
+.star-left {
+  left: var(--border-inner-gap);
+  transform: translate(-50%, -50%);
 }
-.ref-latkan img {
-  width: 100%;
-  display: block;
+
+.star-right {
+  right: var(--border-inner-gap);
+  transform: translate(50%, -50%);
 }
-.latkan-tl { left: var(--ref-corner-size); }
-.latkan-tr { right: var(--ref-corner-size); transform: scaleX(-1); }
-
-
 
 /* ── Atmospheric Warm Vignette (No pitch black) ──────────────────────────── */
 .vignette {
