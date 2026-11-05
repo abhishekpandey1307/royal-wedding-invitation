@@ -728,6 +728,12 @@ body { position: fixed; inset: 0; }
     display: none;
   }
 
+  /* Remove hanging lotus chain latkans on smartphone — keeps border clean & eliminates mandala overlap */
+  .corner-top-left,
+  .corner-top-right {
+    display: none !important;
+  }
+
   .mandala-frame {
     display: block;
     position: absolute;
