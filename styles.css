@@ -221,12 +221,6 @@ body { position: fixed; inset: 0; }
     --mandala-gap-half: clamp(115px, 30vw, 155px);
     --border-fade-len: clamp(28px, 7vw, 42px);
   }
-
-  /* On smartphone screens, top latkans frame the central mandala directly */
-  .frame-top-left,
-  .frame-top-right {
-    display: none;
-  }
 }
 
 .mandala-border-frame {
@@ -722,19 +716,16 @@ body { position: fixed; inset: 0; }
 
 /* ── SPECIALIZED SMARTPHONE EXPERIENCE (All Mobile Viewports <= 768px) ────── */
 @media (max-width: 768px) {
-  /* On mobile portrait, swap paper-bg to smooth ivory texture */
+  /* On mobile portrait, use the authentic high-resolution smartphone mandala background */
   .paper-bg {
-    background-image: url('assets/invitation/champagne-ivory-base.jpg');
+    background-image: url('assets/invitation/traditional-luxury-mandala-bg-mobile.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
 
-  /* Dedicated 24K Top & Bottom Mandalas framing smartphone screens — strictly inside border */
   .mandala-frame-container {
-    display: block;
-    position: absolute;
-    inset: var(--border-inset);
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 2;
+    display: none;
   }
 
   .mandala-frame {
