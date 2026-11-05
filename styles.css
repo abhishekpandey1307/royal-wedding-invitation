@@ -209,6 +209,7 @@ body { position: fixed; inset: 0; }
   --corner-top-w: clamp(120px, 13.5vw, 165px);
   --corner-bot-w: clamp(65px, 6.8vw, 88px);
   --mandala-gap-half: clamp(190px, 20vw, 270px);
+  --border-fade-len: clamp(50px, 5.5vw, 85px);
 }
 
 @media (max-width: 600px) {
@@ -218,6 +219,13 @@ body { position: fixed; inset: 0; }
     --corner-top-w: clamp(102px, 27vw, 130px);
     --corner-bot-w: clamp(52px, 14vw, 70px);
     --mandala-gap-half: clamp(115px, 30vw, 155px);
+    --border-fade-len: clamp(28px, 7vw, 42px);
+  }
+
+  /* On smartphone screens, top latkans frame the central mandala directly */
+  .frame-top-left,
+  .frame-top-right {
+    display: none;
   }
 }
 
@@ -256,84 +264,52 @@ body { position: fixed; inset: 0; }
   border-left: 1.0px solid rgba(164, 113, 51, 0.75);
 }
 
-/* Top-left horizontal border (stops at mandala opening) */
+/* Top-left horizontal border (smoothly fades into mandala flower) */
 .frame-top-left {
   top: 0;
   left: 0;
-  right: calc(50% + var(--mandala-gap-half));
+  right: calc(50% + var(--mandala-gap-half) - var(--border-fade-len));
   height: var(--border-inner-gap);
   border-top: 1.4px solid rgba(164, 113, 51, 0.95);
   border-bottom: 1.0px solid rgba(164, 113, 51, 0.75);
-}
-.frame-top-left::after {
-  content: '';
-  position: absolute;
-  right: -2px;
-  top: -2px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #a47133;
+  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - var(--border-fade-len)), transparent 100%);
+  mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - var(--border-fade-len)), transparent 100%);
 }
 
-/* Top-right horizontal border (stops at mandala opening) */
+/* Top-right horizontal border (smoothly fades into mandala flower) */
 .frame-top-right {
   top: 0;
   right: 0;
-  left: calc(50% + var(--mandala-gap-half));
+  left: calc(50% + var(--mandala-gap-half) - var(--border-fade-len));
   height: var(--border-inner-gap);
   border-top: 1.4px solid rgba(164, 113, 51, 0.95);
   border-bottom: 1.0px solid rgba(164, 113, 51, 0.75);
-}
-.frame-top-right::after {
-  content: '';
-  position: absolute;
-  left: -2px;
-  top: -2px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #a47133;
+  -webkit-mask-image: linear-gradient(to left, #000 0%, #000 calc(100% - var(--border-fade-len)), transparent 100%);
+  mask-image: linear-gradient(to left, #000 0%, #000 calc(100% - var(--border-fade-len)), transparent 100%);
 }
 
-/* Bottom-left horizontal border (stops at mandala opening) */
+/* Bottom-left horizontal border (smoothly fades into mandala flower) */
 .frame-bot-left {
   bottom: 0;
   left: 0;
-  right: calc(50% + var(--mandala-gap-half));
+  right: calc(50% + var(--mandala-gap-half) - var(--border-fade-len));
   height: var(--border-inner-gap);
   border-bottom: 1.4px solid rgba(164, 113, 51, 0.95);
   border-top: 1.0px solid rgba(164, 113, 51, 0.75);
-}
-.frame-bot-left::after {
-  content: '';
-  position: absolute;
-  right: -2px;
-  bottom: -2px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #a47133;
+  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - var(--border-fade-len)), transparent 100%);
+  mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - var(--border-fade-len)), transparent 100%);
 }
 
-/* Bottom-right horizontal border (stops at mandala opening) */
+/* Bottom-right horizontal border (smoothly fades into mandala flower) */
 .frame-bot-right {
   bottom: 0;
   right: 0;
-  left: calc(50% + var(--mandala-gap-half));
+  left: calc(50% + var(--mandala-gap-half) - var(--border-fade-len));
   height: var(--border-inner-gap);
   border-bottom: 1.4px solid rgba(164, 113, 51, 0.95);
   border-top: 1.0px solid rgba(164, 113, 51, 0.75);
-}
-.frame-bot-right::after {
-  content: '';
-  position: absolute;
-  left: -2px;
-  bottom: -2px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #a47133;
+  -webkit-mask-image: linear-gradient(to left, #000 0%, #000 calc(100% - var(--border-fade-len)), transparent 100%);
+  mask-image: linear-gradient(to left, #000 0%, #000 calc(100% - var(--border-fade-len)), transparent 100%);
 }
 
 /* Top Corners with 4-String Hanging Lotus Latkans (Pure Vector SVG) */
